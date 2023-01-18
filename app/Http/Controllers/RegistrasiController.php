@@ -57,5 +57,18 @@ class RegistrasiController extends Controller
         );
         return redirect()-> route('admin.registrasi')->with ($notification);
    }
+
+   public function delete_registrasi($id){
+    $registrasi= Registrasi::find($id);
+
+    $registrasi->delete();
+    $success = true;
+    $message ="Data buku berhasil dihapus";
+
+    return response()->json([
+        'success'=>$success,
+        'registrasi'=> $message,
+    ]);
+}
 }
 
