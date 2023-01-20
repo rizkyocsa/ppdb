@@ -19,6 +19,7 @@ class CreateRegistrasisTable extends Migration
             $table->string('nama_belakang');
             $table->string('alamat');
             $table->string('tanggal_lahir');
+            $table->string('picture');
             $table->timestamps();
         });
     }

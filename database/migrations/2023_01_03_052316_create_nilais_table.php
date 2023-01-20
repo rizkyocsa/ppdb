@@ -15,6 +15,7 @@ class CreateNilaisTable extends Migration
     {
         Schema::create('nilais', function (Blueprint $table) {
             $table->id();
+            $table->string('file');
             $table->timestamps();
         });
     }
