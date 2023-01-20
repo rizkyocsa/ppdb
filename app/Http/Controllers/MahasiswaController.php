@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+<<<<<<< HEAD
 use Illuminate\Support\Facades\Auth;
+=======
+use PDF;
+>>>>>>> 4c42baced4bebf39953a61a26deb42eedad8f8f9
 
 class MahasiswaController extends Controller
 {
@@ -93,5 +97,27 @@ class MahasiswaController extends Controller
             'success' => '$success',
             'message' => '$message',
         ]);
+    }
+
+    public function print_mahasiswa(){
+        $mahasiswa = mahasiswa::all();
+
+        $pdf = PDF::loadview('print_mahasiswa',['mahasiswa=>$mahasiswa']);
+        return $pdf->download('data_mahasiswa.pdf');
+    }
+
+    public function export(){
+        return Excel::download(new MahasiswaExport, 'mahasiswa.xlsx');
+    }
+
+    public function import(Request $req){
+        Excel::import(new MahasiswaImport, $req->file('file'));
+
+        $notification = array(
+            'message' => 'Import data berhasil dilakukan',
+            'alert-type' => 'success'
+        );
+
+        return redirect()->route('mahasiswa.books')->with($notification);
     }
 }
