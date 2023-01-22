@@ -3,11 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-<<<<<<< HEAD
 use Illuminate\Support\Facades\Auth;
-=======
 use PDF;
->>>>>>> 4c42baced4bebf39953a61a26deb42eedad8f8f9
 
 class MahasiswaController extends Controller
 {
