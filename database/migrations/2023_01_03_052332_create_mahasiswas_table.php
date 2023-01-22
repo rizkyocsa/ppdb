@@ -17,10 +17,12 @@ class CreateMahasiswasTable extends Migration
             $table->id();
             $table->timestamps();
             $table->integer('NPM');
-            $table->string('nama');
-            $table->string('kelas');
+            $table->string('name');
+            $table->string('class');
             $table->string('angkatan');
             $table->string('prodi');
+            $table->string('byemail');
+            $table->foreign('byemail')->references('email')->on('user');
         });
     }
 

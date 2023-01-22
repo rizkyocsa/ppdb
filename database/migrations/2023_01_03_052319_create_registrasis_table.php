@@ -15,11 +15,13 @@ class CreateRegistrasisTable extends Migration
     {
         Schema::create('registrasis', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_depan');
-            $table->string('nama_belakang');
+            $table->string('name');
             $table->string('alamat');
-            $table->string('tanggal_lahir');
+            $table->string('asal_sekolah');
+            $table->string('minat_jurusan');
             $table->string('picture');
+            $table->string('byemail');
+            $table->foreign('byemail')->references('email')->on('user');
             $table->timestamps();
         });
     }
