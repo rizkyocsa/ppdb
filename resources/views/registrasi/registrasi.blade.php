@@ -1,83 +1,220 @@
+@extends('layouts.apps')
+
+@section('title', 'Data Registrasi')
+
 @section('content')
-<div class="container-fluid">
-    <div class= "card card-default">
-        <div class= "card-header">{{ __('Pengelolaan Registrasi') }}</div>
-            <div class= "card-body">
-                <table id="table-data" class="table table-bordered">
-                    <thead>
-                        <tr class= "text-center">
-                            <th>Nama Depan</th>
-                            <th>Nama Belakang</th>
-                            <th>Alamat</th>
-                            <th>Tanggal Lahir</th>
-                        </tr>
-                    </thead>
-                <tbody>
-                    #php $no=1; @endphp
-                    @foreach ($registrasi as $registrasi)
-                        <tr>
-                            <td>{{$no++}}</td>
-                            <td>{{$registrasi -> nama_depan}}</td>
-                            <td>{{$registrasi -> nama_belakang}}</td>
-                            <td>{{$registrasi -> alamat}}</td>
-                            <td>{{$registrasi -> tanggal_lahir}}</td>
-                            <td>
-                                @if($registrasi ->cover !== null)
-                                <img src="{{asset('storage/cover_registrasi/' .$registrasi ->cover)}}" width="100px"/>
-                                @else
-                                    [GAMBAR TIDAK TERSEDIA]
-                                @endif
-                            </td>
-                            <td></td>
-                        <tr>
-                            @endforeac
-                    </tbody>
-                </table>
+<div class="main-content user">
+    <div class="row">
+        <div class="col-xl-12">
+            <div class="box card-box mb-20">
+                <div class="icon-box bg-color-1">
+                    <div class="icon bg-icon-1">
+                        <i class='bx bxs-briefcase'></i>
+                    </div>
+                    <div class="content">
+                        <h5 class="title-box fs-15 mt-2">Total Task</h5>
+                        <div class="themesflat-counter fs-14 font-wb color-1">
+                            <span class="number" data-from="0" data-to="1225" data-speed="2500" data-inviewport="yes">1225</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="icon-box bg-color-2">
+                    <div class="icon bg-icon-2">
+                        <i class='bx bx-task'></i>
+                    </div>
+                    <div class="content click-c">
+                        <h5 class="title-box fs-15 mt-2">Running Task</h5>
+                        <div class="themesflat-counter fs-14 font-wb color-2">
+                            <span class="number" data-from="0" data-to="309" data-speed="2500" data-inviewport="yes">154 +</span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="icon-box bg-color-3">
+                    <div class="icon bg-icon-3">
+                        <i class='bx bx-block'></i>
+                    </div>
+                    <div class="content click-c">
+                        <h5 class="title-box fs-15 mt-2">On Hold Task</h5>
+                        <div class="themesflat-counter fs-14 font-wb color-3">
+                            <span class="number" data-from="0" data-to="309" data-speed="2500" data-inviewport="yes">75 +</span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="icon-box bg-color-5">
+                    <div class="icon bg-icon-5">
+                        <i class='bx bx-task color-white'></i>
+                    </div>
+                    <div class="content click-c">
+                        <h5 class="title-box fs-15 mt-2">Complete Task</h5>
+                        <div class="themesflat-counter fs-14 font-wb color-4">
+                            <span class="number" data-from="0" data-to="309" data-speed="2500" data-inviewport="yes">120 +</span>
+                        </div>
+                    </div>
+
+                </div>
             </div>
+            <div class="box">
+                <div class="box-body pb-30">
+                    <div class="row">
+                        <div class="col-md-12 col-xl-10 mb-0">
+                            <div class="row">
+                                <div class="col-md-12 col-xl-4 mb-0">
+                                    <div class="form-group"> <label class="form-label">From:</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text"><i class='bx bx-calendar'></i> </div>
+                                            </div><input class="form-control fc-datepicker" placeholder="DD-MM-YYYY" type="text"> </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-xl-4 mb-0">
+                                    <div class="form-group"> <label class="form-label">To:</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <div class="input-group-text"><i class='bx bx-calendar'></i> </div>
+                                            </div><input class="form-control fc-datepicker" placeholder="DD-MM-YYYY" type="text"> </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 col-xl-4 mb-0">
+                                    <div class="form-group"> <label class="form-label">Select Priority:</label> <select name="attendance" class="form-control custom-select select2 select2-hidden-accessible" data-placeholder="Select Priority" tabindex="-1" aria-hidden="true"
+                                            data-select2-id="select2-data-16-akyu"><option label="Select Priority" data-select2-id="select2-data-18-ezae"></option> <option value="1">High</option> <option value="2">Medium</option> <option value="3">Low</option> </select>
+                                        <span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="select2-data-17-6y8j" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-attendance-ws-container" aria-controls="select2-attendance-ws-container"><span class="select2-selection__rendered" id="select2-attendance-ws-container" role="textbox" aria-readonly="true" title="Select Priority"></span>
+                                        <span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span>
+                                        </span>
+                                        </span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-xl-2 mb-0">
+                            <div class="form-group mt-32"> <a href="#" class="btn bg-primary btn-block color-white">Search</a> </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="table-responsive">
+                        <div id="task-profile_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
+                            <!-- <div class="row">
+                                <div class="col-sm-12 col-md-6">
+                                    <div class="dataTables_length" id="task-profile_length"><label>Show <select name="task-profile_length" aria-controls="task-profile" class="form-select form-select-sm"><option value="10">10</option><option value="25">25</option><option value="50">50</option><option value="100">100</option></select> entries</label></div>
+                                </div>
+                                <div class="col-sm-12 col-md-6">
+                                    <div id="task-profile_filter" class="dataTables_filter"><label><input type="search" class="form-control form-control-sm" placeholder="Search..." aria-controls="task-profile"></label></div>
+                                </div>
+                            </div> -->
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <table class="table table-vcenter text-nowrap table-bordered dataTable no-footer" id="task-profile" role="grid">
+                                        <thead>
+                                            <tr class="top">
+                                                <th class="border-bottom-0 text-center sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 26.6562px;">No</th>
+                                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 222.312px;">Nama</th>
+                                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 84.8281px;">Asal Sekolah</th>
+                                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 87.9844px;">Minat Jurusan</th>
+                                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 87.9844px;">Nilai UN</th>
+                                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 71.875px;">Photo</th>
+                                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 110.719px;">Work Status</th>
+                                                <th class="border-bottom-0 sorting_disabled fs-14 font-w500" rowspan="1" colspan="1" style="width: 145.391px;">Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @php $no=1; @endphp
+                                            @foreach($registrasi as $registrasi)
+                                                <tr class="">
+                                                    <td class="text-center">{{$registrasi->id}}</td>
+                                                    <td class="text-left">{{$registrasi->name}}</td>
+                                                    <td class="text-left">{{$registrasi->asal_sekolah}}</td>
+                                                    <td class="text-left">{{$registrasi->minat_jurusan}}</td>
+                                                    <td class="text-center">
+                                                        @if($registrasi->nilaiUN !== null)
+                                                            <img src="{{ asset('storage/nilaiUN_registrasi/'.$registrasi->nilaiUN) }}" width="100px"/>
+                                                        @else
+                                                            [Gambar tidak tersedia]
+                                                        @endif
+                                                    </td>
+                                                    <td class="text-center">
+                                                        @if($registrasi->photo !== null)
+                                                            <img src="{{ asset('storage/photo_registrasi/'.$registrasi->photo) }}" width="100px"/>
+                                                        @else
+                                                            [Gambar tidak tersedia]
+                                                        @endif
+                                                    </td>
+                                                    @if($registrasi->status == "proses")
+                                                    <td><span class="badge badge-warning">{{$registrasi->status}}</span></td>
+                                                    @else
+                                                    <td><span class="badge badge-danger">Tidak lolos</span></td>
+                                                    @endif
+                                                    <td>
+                                                        <div class="dropdown">
+                                                            <a href="javascript:void(0);" class="btn-link" data-bs-toggle="dropdown" aria-expanded="false">
+                                                                <i class='bx bx-dots-horizontal-rounded'></i>
+                                                            </a>
+                                                            <div class="dropdown-menu dropdown-menu-right">
+                                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_client"><i class="bx bx-trash"></i> Delete</a>
+                                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_client"><i class="bx bx-edit mr-5"></i>Edit</a>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12 col-md-5">
+                                    <div class="dataTables_info" id="task-profile_info" role="status" aria-live="polite">Showing 1 to 8 of 8 entries</div>
+                                </div>
+                                <div class="col-sm-12 col-md-7">
+                                    <div class="dataTables_paginate paging_simple_numbers" id="task-profile_paginate">
+                                        <ul class="pagination">
+                                            <li class="paginate_button page-item previous disabled" id="task-profile_previous"><a href="#" aria-controls="task-profile" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li>
+                                            <li class="paginate_button page-item "><a href="#" aria-controls="task-profile" data-dt-idx="1" tabindex="0" class="page-link">01</a></li>
+                                            <li class="paginate_button page-item active"><a href="#" aria-controls="task-profile" data-dt-idx="1" tabindex="0" class="page-link">02</a></li>
+                                            <li class="paginate_button page-item "><a href="#" aria-controls="task-profile" data-dt-idx="1" tabindex="0" class="page-link">03</a></li>
+                                            <li class="paginate_button page-item next disabled" id="task-profile_next"><a href="#" aria-controls="task-profile" data-dt-idx="2" tabindex="0" class="page-link">Next</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
-<div class= "modal fade" id="tambahRegistrasiModal" tabindex="-1"aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class= "modal-dialog">
-        <div class= "modal-content">
-            <div cass= "modal-header">
-            <h5 class = "modal-tittle" id = "exampleModalLabel"> Tambah Data </h5>
-            <button type = "button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden= "true">&times; </span>
-            </button>
-        </div>
-    <div class ="modal-body">
-        <form method= "post" action="{{ route('admin.registrasi.submit') }}" enctype="multipart/form-data">
-            @csrf
-            <div class="form-group">
-                <label for="nama_depan">Nama Depan</label>
-                <input type="text" class="form-control" name="nama_depan" id="nama_depan" required/>
-            </div>
-            <div class="form-group">
-                <label for="nama_belakang">Nama Belakang</label>
-                <input type="text" class="form-control" name="nama_belakang" id="nama_belakang" required/>
-            </div>
-            <div class="form-group">
-                <label for="alamat">Alamat</label>
-                <input type="text" class="form-control" name="alamat" id="alamat" required/>
-            </div>
-            <div class="form-group">
-                <label for="tanggal_lahir">Tanggal Lahir</label>
-                <input type="text" class="form-control" name="tanggal_lahir" id="tanggal_lahir" required/>
-            </div>
-            <div class="form-group">
-                <label for="cover">Cover</label>
-                <input type="text" class="form-control" name="cover" id="cover" required/>
-            </div>
+
+    <!-- <div class="main">
+        <table id="table-data" class="table">
+            <thead>
+                <tr class="text-center">
+                    <th>NPM</th>
+                    <th>Nama</th>
+                    <th>Kelas</th>
+                    <th>Angkatan</th>
+                    <th>Prodi</th>
+                </tr>
+            </thead>
+            <tbody>
+                @php $no=1; @endphp
+                @foreach($registrasi as $registrasi)
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                    <td>
+                       
+                    </td>
+                    <td></td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
     </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
-        <button type="button" class="btn btn-primary">Kirim</button>
-    </div>
-        </form>
-    </div>
-</div>
-</div>
-</div>
-@stop
+
 @endsection

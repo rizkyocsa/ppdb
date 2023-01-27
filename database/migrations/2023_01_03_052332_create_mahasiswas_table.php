@@ -22,7 +22,7 @@ class CreateMahasiswasTable extends Migration
             $table->string('angkatan');
             $table->string('prodi');
             $table->string('byemail');
-            $table->foreign('byemail')->references('email')->on('user');
+            $table->foreign('byemail')->references('email')->on('users');
         });
     }
 

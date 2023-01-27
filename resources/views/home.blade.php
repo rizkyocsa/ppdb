@@ -1,29 +1,6 @@
 @extends('layouts.apps')
 
-@section('title', 'Home')
-
-
-@section('sidebar')
-    <li>
-        <a href="{{ route('login') }}">
-            <i class='bx bxs-dashboard'></i>
-            <span>Dashboard</span>
-        </a>
-    </li>
-    <li>
-        <a href="{{ route('register') }}">
-            <i class='bx bx-calendar'></i>
-            <span>Register</span>
-        </a>
-    </li>
-    <li>
-        <a href="{{ route('Mahasiswa') }}">
-            <i class='bx bx-calendar'></i>
-            <span>Mahasiswa</span>
-        </a>
-    </li>
-@endsection
-
+@section('title', 'Dashboard')
 
 @section('content')
 <div class="main-content">
@@ -32,9 +9,9 @@
         <!-- Tampilan Dashboard Admin -->
             Anda Admin
         @elseif ($user->roles_id == 2)
-            
+            Anda Mahasiswa
         @else
-            
+            Anda User
         @endif
     </div>
 </div>

@@ -31,8 +31,8 @@
     <!-- SIDEBAR -->
     <div class="sidebar">
         <div class="sidebar-logo">
-            <a href="index.html">
-                <img src="{{ asset('homes/images/logo.png') }}" alt="Protend logo">
+                        <a href="index.html">
+                <img src="./images/logo.png" alt="Protend logo">
             </a>
             <div class="sidebar-close" id="sidebar-close">
                 <i class='bx bx-left-arrow-alt'></i>
@@ -41,14 +41,66 @@
         <!-- SIDEBAR MENU -->
         <div class="simlebar-sc" data-simplebar>
             <ul class="sidebar-menu tf">
-                @yield('sidebar')
-            </ul>                                    
-        </div>
+                @if($user->roles_id == 1)
+                <li class="sidebar-submenu">
+                    <a href="{{ route('admin.home') }}">
+                        <i class='bx bxs-home'></i>
+                        <span>Dashboard</span>
+                    </a>
+                <li>
+                <li>
+                    <a href="{{ route('admin.registrasi') }}">
+                        <i class='bx bxs-dashboard'></i>
+                        <span>Registrasi</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ route('admin.mahasiswa') }}">
+                        <i class='bx bx-calendar'></i>
+                        <span>Mahasiswa</span>
+                    </a>
+                </li>
+                @endif
+                @if($user->roles_id == 2)
+                <li class="sidebar-submenu">
+                    <a href="{{ route('mahasiswa.home') }}">
+                        <i class='bx bxs-home'></i>
+                        <span>Dashboard</span>
+                    </a>
+                <li>
+                @endif  
+                @if($user->roles_id == 3)
+                <li class="sidebar-submenu">
+                    <a href="{{ route('home') }}">
+                        <i class='bx bxs-home'></i>
+                        <span>Dashboard</span>
+                    </a>
+                <li>
+                <li class="sidebar-submenu">
+                    <a href="{{ route('user.registrasi') }}">
+                        <i class='bx bxs-home'></i>
+                        <span>Registrasi</span>
+                    </a>
+                <li>
+                @endif    
+                
+                <li>
+                    <a class="darkmode-toggle" id="darkmode-toggle" onclick="switchTheme()">
+                        <div>
+                            <i class='bx bx-cog mr-10'></i>
+                            <span>darkmode</span>
+                        </div>
 
+                        <span class="darkmode-switch"></span>
+                    </a>
+                </li>
+            </ul>
+        </div>
         <!-- END SIDEBAR MENU -->
     </div>
     <!-- END SIDEBAR -->
-    <!-- Main Header -->
+
+        <!-- Main Header -->
     <div class="main-header">
         <div class="d-flex">
             <div class="mobile-toggle" id="mobile-toggle">
@@ -58,50 +110,68 @@
                 @yield('title')
             </div>
         </div>
-        <div class="dropdown d-inline-block mt-12">
-                    <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="info d-xl-inline-block  color-span">
-                                <span class="d-block fs-20 font-w600">
-                                {{{ Auth::user()->name }}}
-                                </span>
-                                <span class="d-block mt-7" >
-                                <!-- {{{ Auth::user()->roles_id }}}     -->
-                                {{{ Auth::user()->email }}}
-                                </span>
-                            </span>                                
-                            <i class='bx bx-chevron-down'></i>
-                        </button>
-                    <div class="dropdown-menu dropdown-menu-end">
-                        <!-- item-->
-                        <a class="dropdown-item" href="#"><i class="bx bx-user font-size-16 align-middle me-1"></i> <span>Profile</span></a>
-                        <a class="dropdown-item" href="#"><i class="bx bx-wallet font-size-16 align-middle me-1"></i> <span>My Wallet</span></a>
-                        <a class="dropdown-item d-block" href="#"><span class="badge bg-success float-end">11</span><i class="bx bx-wrench font-size-16 align-middle me-1"></i> <span>Settings</span></a>
-                        <a class="dropdown-item" href="#"><i class="bx bx-lock-open font-size-16 align-middle me-1"></i> <span>Lock screen</span></a>
-                        <div class="dropdown-divider"></div>
-                            <a class="dropdown-item text-danger" href="{{ route('logout') }}"
-                                onclick="event.preventDefault();
-                                                document.getElementById('logout-form').submit();">
-                                <i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i>                    
-                                Logout
-                            </a>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                    </div>
+        <div class="d-flex align-items-center">
+
+            <!-- App Search-->
+            
+
+            
+            <div class="dropdown d-inline-block mt-12">
+                <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img class="rounded-circle header-profile-user" src="{{ asset('homes//images/profile/profile.png') }}"
+                            alt="Header Avatar">
+                        <span class="info d-xl-inline-block  color-span">
+                            <span class="d-block fs-20 font-w600">
+                            {{{Auth::user()->name }}}
+                            </span> 
+                            <span class="d-block mt-7" >
+                            @if ($user->roles_id == 1)
+                                Admin
+                            @elseif ($user->roles_id == 2)
+                                Mahasiswa
+                            @else
+                                User
+                            @endif
+                            </span>
+                        </span>
+                            
+                        <i class='bx bx-chevron-down'></i>
+                    </button>
+                <div class="dropdown-menu dropdown-menu-end">
+                    <!-- item-->
+                    <a class="dropdown-item" href="#"><i class="bx bx-user font-size-16 align-middle me-1"></i> <span>Profile</span></a>
+                    <a class="dropdown-item" href="#"><i class="bx bx-wallet font-size-16 align-middle me-1"></i> <span>My Wallet</span></a>
+                    <a class="dropdown-item d-block" href="#"><span class="badge bg-success float-end">11</span><i class="bx bx-wrench font-size-16 align-middle me-1"></i> <span>Settings</span></a>
+                    <a class="dropdown-item" href="#"><i class="bx bx-lock-open font-size-16 align-middle me-1"></i> <span>Lock screen</span></a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item text-danger" href="{{ route('logout') }}"
+                        onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                        <i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i><span>Logout</span>
+                    </a>
+
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                        @csrf
+                    </form>
                 </div>
+            </div>
+        </div>
     </div>
-    <!-- End Main Header -->
-    <!-- MAIN CONTENT -->
+    <!-- End Main Header -->                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
 
+    <!-- MAIN CONTENT -->
     <div class="main">
-    @yield('content')
+        @yield('content')
     </div>
     <!-- END MAIN CONTENT -->
 
     <div class="overlay"></div>
 
     <!-- SCRIPT -->
+
+    <!-- Plugin -->
+
     <!-- APEX CHART -->
     <script src="{{ asset('homes/libs/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('homes/libs/moment/min/moment.min.js') }}"></script>
@@ -118,8 +188,8 @@
     <script src="{{ asset('homes/js/dashboard.js') }}"></script>
     <script src="{{ asset('homes/js/shortcode.js') }}"></script>
     <script src="{{ asset('homes/js/pages/dashboard.js') }}"></script>
-
-
+    
+    @yield('script');
 </body>
 
 </html>

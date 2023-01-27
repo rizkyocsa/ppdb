@@ -19,4 +19,10 @@ class HomeController extends Controller
         $user = Auth::user();
         return view('home', compact('user'));
     }
+
+    public function indexUser()
+    {
+        $user = Auth::user();
+        return view('user/home', compact('user'));
+    }
 }

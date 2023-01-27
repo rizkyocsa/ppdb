@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Mahasiswa;
 use PDF;
 
 class MahasiswaController extends Controller
@@ -17,104 +18,105 @@ class MahasiswaController extends Controller
     public function index()
     {
         $user = Auth::user();
-        return view('home', compact('user'));
-    }
-
-    public function Mahasiswa(){
-        $user = Auth::user();
         $mahasiswa = mahasiswa::all();
-        return view('mahasiswa', compact('user', 'mahasiswa'));
+        return view('mahasiswa/mahasiswa', compact('user','mahasiswa'));
     }
 
-    public function submit_mahasiswa(Request $req){
-        $validate = $req->validate([
-            'NPM' => 'required',
-            'nama' => 'required', 
-            'kelas' => 'required',
-            'angkatan' => 'required',
-            'prodi' => 'required',
-        ]);
-        $mahasiswa = new mahasiswa;
-        $mahasiswa->NPM = $req->get('NPM');
-        $mahasiswa->nama = $req->get('nama');
-        $mahasiswa->kelas = $req->get('kelas');
-        $mahasiswa->angkatan = $req->get('angkatan');
-        $mahasiswa->prodi = $req->get('prodi');
+    // public function Mahasiswa(){
+    //     $user = Auth::user();
+    //     $mahasiswa = mahasiswa::all();
+    //     return view('mahasiswa', compact('user', 'mahasiswa'));
+    // }
 
-        $mahasiswa->save();
+    // public function submit_mahasiswa(Request $req){
+    //     $validate = $req->validate([
+    //         'NPM' => 'required',
+    //         'nama' => 'required', 
+    //         'kelas' => 'required',
+    //         'angkatan' => 'required',
+    //         'prodi' => 'required',
+    //     ]);
+    //     $mahasiswa = new mahasiswa;
+    //     $mahasiswa->NPM = $req->get('NPM');
+    //     $mahasiswa->nama = $req->get('nama');
+    //     $mahasiswa->kelas = $req->get('kelas');
+    //     $mahasiswa->angkatan = $req->get('angkatan');
+    //     $mahasiswa->prodi = $req->get('prodi');
 
-        $notification = array(
-            'message' => 'Data Mahasiswa Berhasil Ditambahkan',
-            'alert-type' => 'success'
-        );
+    //     $mahasiswa->save();
 
-        return redirect()->route('admin.mahasiswa')->with($notification);
-    }
+    //     $notification = array(
+    //         'message' => 'Data Mahasiswa Berhasil Ditambahkan',
+    //         'alert-type' => 'success'
+    //     );
 
-    public function update_mahasiswa(Request $req){
+    //     return redirect()->route('admin.mahasiswa')->with($notification);
+    // }
+
+    // public function update_mahasiswa(Request $req){
         
-        $mahasiswa = mahasiswa::find($req->get('id'));
+    //     $mahasiswa = mahasiswa::find($req->get('id'));
 
-        $validate = $req->validate([
-        'NPM' => 'required',
-        'nama' => 'required', 
-        'kelas' => 'required',
-        'angkatan' => 'required',
-        'prodi' => 'required',
-        ]);
+    //     $validate = $req->validate([
+    //     'NPM' => 'required',
+    //     'nama' => 'required', 
+    //     'kelas' => 'required',
+    //     'angkatan' => 'required',
+    //     'prodi' => 'required',
+    //     ]);
         
-        $mahasiswa = new mahasiswa;
+    //     $mahasiswa = new mahasiswa;
         
-        $mahasiswa->NPM = $req->get('NPM');
-        $mahasiswa->nama = $req->get('nama');
-        $mahasiswa->kelas = $req->get('kelas');
-        $mahasiswa->angkatan = $req->get('angkatan');
-        $mahasiswa->prodi = $req->get('prodi');
+    //     $mahasiswa->NPM = $req->get('NPM');
+    //     $mahasiswa->nama = $req->get('nama');
+    //     $mahasiswa->kelas = $req->get('kelas');
+    //     $mahasiswa->angkatan = $req->get('angkatan');
+    //     $mahasiswa->prodi = $req->get('prodi');
 
-        $mahasiswa->save();
+    //     $mahasiswa->save();
 
-        $notification = array(
-            'message' => 'Data Mahasiswa Berhasil Diubah',
-            'alert-type' => 'success'
-        );
+    //     $notification = array(
+    //         'message' => 'Data Mahasiswa Berhasil Diubah',
+    //         'alert-type' => 'success'
+    //     );
 
-        return redirect()->route('admin.mahasiswa')->with($notification);
-    }
+    //     return redirect()->route('admin.mahasiswa')->with($notification);
+    // }
 
-    public function delete_mahasiswa($id){
+    // public function delete_mahasiswa($id){
         
-        $mahasiswa = mahasiswa::find($id);
+    //     $mahasiswa = mahasiswa::find($id);
         
-        $mahasiswa->delete();
+    //     $mahasiswa->delete();
 
-        $success = true;
-        $message = "Data Mahasiswa Berhasil Dihapus";
+    //     $success = true;
+    //     $message = "Data Mahasiswa Berhasil Dihapus";
 
-        return response()->json([
-            'success' => '$success',
-            'message' => '$message',
-        ]);
-    }
+    //     return response()->json([
+    //         'success' => '$success',
+    //         'message' => '$message',
+    //     ]);
+    // }
 
-    public function print_mahasiswa(){
-        $mahasiswa = mahasiswa::all();
+    // public function print_mahasiswa(){
+    //     $mahasiswa = mahasiswa::all();
 
-        $pdf = PDF::loadview('print_mahasiswa',['mahasiswa=>$mahasiswa']);
-        return $pdf->download('data_mahasiswa.pdf');
-    }
+    //     $pdf = PDF::loadview('print_mahasiswa',['mahasiswa=>$mahasiswa']);
+    //     return $pdf->download('data_mahasiswa.pdf');
+    // }
 
-    public function export(){
-        return Excel::download(new MahasiswaExport, 'mahasiswa.xlsx');
-    }
+    // public function export(){
+    //     return Excel::download(new MahasiswaExport, 'mahasiswa.xlsx');
+    // }
 
-    public function import(Request $req){
-        Excel::import(new MahasiswaImport, $req->file('file'));
+    // public function import(Request $req){
+    //     Excel::import(new MahasiswaImport, $req->file('file'));
 
-        $notification = array(
-            'message' => 'Import data berhasil dilakukan',
-            'alert-type' => 'success'
-        );
+    //     $notification = array(
+    //         'message' => 'Import data berhasil dilakukan',
+    //         'alert-type' => 'success'
+    //     );
 
-        return redirect()->route('mahasiswa.books')->with($notification);
-    }
+    //     return redirect()->route('mahasiswa.books')->with($notification);
+    // }
 }

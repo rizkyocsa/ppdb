@@ -16,12 +16,13 @@ class CreateRegistrasisTable extends Migration
         Schema::create('registrasis', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('alamat');
             $table->string('asal_sekolah');
             $table->string('minat_jurusan');
-            $table->string('picture');
+            $table->string('nilaiUN');
+            $table->string('photo');
+            $table->string('status');
             $table->string('byemail');
-            $table->foreign('byemail')->references('email')->on('user');
+            $table->foreign('byemail')->references('email')->on('users');
             $table->timestamps();
         });
     }

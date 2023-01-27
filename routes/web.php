@@ -19,6 +19,19 @@ Route::get('/', function () {
 
 Auth::routes();
 
+//Admin
 Route::get('admin/home', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.home')->middleware('is_admin');
+
+Route::get('admin/registrasi', [App\Http\Controllers\RegistrasiController::class, 'index'])->name('admin.registrasi')->middleware('is_admin');
+Route::get('admin/mahasiswa', [App\Http\Controllers\MahasiswaController::class, 'index'])->name('admin.mahasiswa')->middleware('is_admin');
+
+
+//Mahasiswa
 Route::get('mahasiswa/home', [App\Http\Controllers\MahasiswaController::class, 'index'])->name('mahasiswa.home')->middleware('is_mahasiswa');
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+//User
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('is_user');
+Route::get('/home/registrasi', [App\Http\Controllers\RegistrasiController::class, 'form_registrasi'])->name('user.registrasi')->middleware('is_user');
+Route::post('/home/registrasi/create', [App\Http\Controllers\RegistrasiController::class, 'submit_registrasi'])->name('create.registrasi')->middleware('is_user');
+
