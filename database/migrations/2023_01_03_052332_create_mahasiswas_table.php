@@ -15,7 +15,6 @@ class CreateMahasiswasTable extends Migration
     {
         Schema::create('mahasiswas', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
             $table->integer('NPM');
             $table->string('name');
             $table->string('class');
@@ -23,6 +22,7 @@ class CreateMahasiswasTable extends Migration
             $table->string('prodi');
             $table->string('byemail');
             $table->foreign('byemail')->references('email')->on('users');
+            $table->timestamps();
         });
     }
 
