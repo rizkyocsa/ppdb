@@ -13,7 +13,7 @@
                 @endif
             @endforeach
             @if($ada)
-                Anda sudah mendaftar
+                Anda sudah mendaftar tunggu hasilnya pada menu dashboard
             @else
             <div class="box">
                 <form action="{{ route('create.registrasi') }}" method="post" enctype="multipart/form-data">

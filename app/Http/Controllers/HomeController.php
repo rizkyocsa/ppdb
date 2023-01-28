@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Registrasi;
 
 class HomeController extends Controller
 {
@@ -17,12 +18,7 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
-        return view('home', compact('user'));
-    }
-
-    public function indexUser()
-    {
-        $user = Auth::user();
-        return view('user/home', compact('user'));
+        $registrasi = Registrasi::all();
+        return view('home', compact('user','registrasi'));
     }
 }

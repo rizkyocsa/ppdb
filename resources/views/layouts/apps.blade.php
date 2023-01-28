@@ -189,7 +189,7 @@
     <script src="{{ asset('homes/js/shortcode.js') }}"></script>
     <script src="{{ asset('homes/js/pages/dashboard.js') }}"></script>
     
-    @yield('script');
+    @yield('script')
 </body>
 
 </html>
