@@ -13,7 +13,8 @@ class RegistrasiController extends Controller
     public function index(){
         $user = Auth::user();
         $registrasi = Registrasi::all();
-        return view('registrasi/registrasi', compact('user', 'registrasi'));
+        $total = Registrasi::all()->count();
+        return view('registrasi/registrasi', compact('user', 'registrasi','total'));
     }
 
     public function form_registrasi(){

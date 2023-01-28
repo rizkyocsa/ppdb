@@ -19,7 +19,11 @@ class MahasiswaController extends Controller
     {
         $user = Auth::user();
         $mahasiswa = mahasiswa::all();
-        return view('mahasiswa/mahasiswa', compact('user','mahasiswa'));
+        $total = mahasiswa::all()->count();
+        $aktif = mahasiswa::all()->where('status','aktif')->count();
+        $cuti = mahasiswa::all()->where('status','cuti')->count();
+        $alumni = mahasiswa::all()->where('status','alumni')->count();
+        return view('mahasiswa/mahasiswa', compact('user','mahasiswa','total','aktif','cuti','alumni'));
     }
 
     // public function Mahasiswa(){

@@ -12,9 +12,9 @@
                         <i class='bx bxs-briefcase'></i>
                     </div>
                     <div class="content">
-                        <h5 class="title-box fs-15 mt-2">Total Task</h5>
+                        <h5 class="title-box fs-15 mt-2">Total Registrasi</h5>
                         <div class="themesflat-counter fs-14 font-wb color-1">
-                            <span class="number" data-from="0" data-to="1225" data-speed="2500" data-inviewport="yes">1225</span>
+                            <span class="number" data-from="0" data-to="1225" data-speed="2500" data-inviewport="yes">{{$total}}</span>
                         </div>
                     </div>
                 </div>
@@ -23,7 +23,7 @@
                         <i class='bx bx-task'></i>
                     </div>
                     <div class="content click-c">
-                        <h5 class="title-box fs-15 mt-2">Running Task</h5>
+                        <h5 class="title-box fs-15 mt-2">Proses</h5>
                         <div class="themesflat-counter fs-14 font-wb color-2">
                             <span class="number" data-from="0" data-to="309" data-speed="2500" data-inviewport="yes">154 +</span>
                         </div>
@@ -35,7 +35,7 @@
                         <i class='bx bx-block'></i>
                     </div>
                     <div class="content click-c">
-                        <h5 class="title-box fs-15 mt-2">On Hold Task</h5>
+                        <h5 class="title-box fs-15 mt-2">Tidak Lolos</h5>
                         <div class="themesflat-counter fs-14 font-wb color-3">
                             <span class="number" data-from="0" data-to="309" data-speed="2500" data-inviewport="yes">75 +</span>
                         </div>
@@ -47,7 +47,7 @@
                         <i class='bx bx-task color-white'></i>
                     </div>
                     <div class="content click-c">
-                        <h5 class="title-box fs-15 mt-2">Complete Task</h5>
+                        <h5 class="title-box fs-15 mt-2">Lolos</h5>
                         <div class="themesflat-counter fs-14 font-wb color-4">
                             <span class="number" data-from="0" data-to="309" data-speed="2500" data-inviewport="yes">120 +</span>
                         </div>

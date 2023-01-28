@@ -31,23 +31,25 @@
     <!-- SIDEBAR -->
     <div class="sidebar">
         <div class="sidebar-logo">
-                        <a href="index.html">
+            <a href="index.html">
                 <img src="./images/logo.png" alt="Protend logo">
             </a>
             <div class="sidebar-close" id="sidebar-close">
                 <i class='bx bx-left-arrow-alt'></i>
             </div>
         </div>
+        
         <!-- SIDEBAR MENU -->
+        
         <div class="simlebar-sc" data-simplebar>
-            <ul class="sidebar-menu tf">
-                @if($user->roles_id == 1)
-                <li class="sidebar-submenu">
+        @if($user->roles_id == 1)
+            <ul class="sidebar-menu tf"> 
+                <li>
                     <a href="{{ route('admin.home') }}">
                         <i class='bx bxs-home'></i>
                         <span>Dashboard</span>
                     </a>
-                <li>
+                </li>
                 <li>
                     <a href="{{ route('admin.registrasi') }}">
                         <i class='bx bxs-dashboard'></i>
@@ -59,42 +61,35 @@
                         <i class='bx bx-calendar'></i>
                         <span>Mahasiswa</span>
                     </a>
-                </li>
-                @endif
-                @if($user->roles_id == 2)
-                <li class="sidebar-submenu">
+                </li>      
+            </ul>
+        @endif
+        @if($user->roles_id == 2)
+            <ul class="sidebar-menu tf">
+                <li>
                     <a href="{{ route('mahasiswa.home') }}">
                         <i class='bx bxs-home'></i>
                         <span>Dashboard</span>
                     </a>
+                </li>
+            </ul>
+        @endif
+        @if($user->roles_id == 3)
+            <ul class="sidebar-menu tf">
                 <li>
-                @endif  
-                @if($user->roles_id == 3)
-                <li class="sidebar-submenu">
                     <a href="{{ route('home') }}">
                         <i class='bx bxs-home'></i>
                         <span>Dashboard</span>
                     </a>
+                </li>
                 <li>
-                <li class="sidebar-submenu">
                     <a href="{{ route('user.registrasi') }}">
                         <i class='bx bxs-home'></i>
                         <span>Registrasi</span>
                     </a>
-                <li>
-                @endif    
-                
-                <li>
-                    <a class="darkmode-toggle" id="darkmode-toggle" onclick="switchTheme()">
-                        <div>
-                            <i class='bx bx-cog mr-10'></i>
-                            <span>darkmode</span>
-                        </div>
-
-                        <span class="darkmode-switch"></span>
-                    </a>
                 </li>
-            </ul>
+            </ul>    
+        @endif    
         </div>
         <!-- END SIDEBAR MENU -->
     </div>
