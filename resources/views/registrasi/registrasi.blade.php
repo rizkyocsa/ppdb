@@ -122,7 +122,7 @@
                                             @php $no=1; @endphp
                                             @foreach($registrasi as $registrasi)
                                                 <tr class="">
-                                                    <td class="text-center">{{$registrasi->id}}</td>
+                                                    <td class="text-center">{{$no++}}</td>
                                                     <td class="text-left">{{$registrasi->name}}</td>
                                                     <td class="text-left">{{$registrasi->asal_sekolah}}</td>
                                                     <td class="text-left">{{$registrasi->minat_jurusan}}</td>
@@ -140,23 +140,28 @@
                                                             [Gambar tidak tersedia]
                                                         @endif
                                                     </td>
-                                                    @if($registrasi->status == "proses")
-                                                    <td><span class="badge badge-warning">{{$registrasi->status}}</span></td>
+                                                    @if($registrasi->status == "lolos")
+                                                        <td><span class="badge badge-success">{{$registrasi->status}}</span></td>
+                                                    @elseif($registrasi->status == "proses")
+                                                        <td><span class="badge badge-warning">{{$registrasi->status}}</span></td>
                                                     @else
-                                                    <td><span class="badge badge-danger">Tidak lolos</span></td>
+                                                     <td><span class="badge badge-danger">Tidak lolos</span></td>
                                                     @endif
                                                     <td>
+                                                    
                                                         <div class="dropdown">
                                                             <a href="javascript:void(0);" class="btn-link" data-bs-toggle="dropdown" aria-expanded="false">
                                                                 <i class='bx bx-dots-horizontal-rounded'></i>
                                                             </a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_client"><i class="bx bx-trash"></i> Delete</a>
+                                                                <button type="button" id="btn-lolos" data-toggle="modal" class="dropdown-item" data-target="#edit-lolos" data-id="{{$registrasi->id}}"><span class="bx bx-edit mr-5"></span>Lolos</button>
+                                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_client"><i class="bx bx-edit mr-5"></i>Tidak Lolos</a>
                                                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_client"><i class="bx bx-edit mr-5"></i>Edit</a>
+                                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_client"><i class="bx bx-trash"></i> Delete</a>
                                                             </div>
                                                         </div>
                                                     </td>
-                                                </tr>
+                                                </tr>                                                
                                             @endforeach
                                         </tbody>
                                     </table>
@@ -186,35 +191,59 @@
     </div>
 </div>
 
-
-    <!-- <div class="main">
-        <table id="table-data" class="table">
-            <thead>
-                <tr class="text-center">
-                    <th>NPM</th>
-                    <th>Nama</th>
-                    <th>Kelas</th>
-                    <th>Angkatan</th>
-                    <th>Prodi</th>
-                </tr>
-            </thead>
-            <tbody>
-                @php $no=1; @endphp
-                @foreach($registrasi as $registrasi)
-                <tr>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td>
-                       
-                    </td>
-                    <td></td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+<div class="modal custom-modal fade" id="edit-lolos" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="form-header">
+                    <h5 class="modal-title">Status</h5>
+                </div>
+            </div>
+            <div class="modal-body">
+                <form action="{{ route('registrasi.lolos') }}" method="post">
+                @csrf
+                @method('PATCH')
+                    <div class="row">                       
+                        <div class="form-group">
+                            <label>Apakah pendaftar ini lolos</label>
+                            <input class="form-control" id="id-lolos"  name="id" type="text">
+                            <input class="form-control" id="name-lolos"  name="name" type="text">
+                            <input class="form-control" id="byemail-lolos"  name="byemail" type="text" >
+                            <input class="form-control" id="status-lolos" value="lolos" name="status" type="text" >
+                        </div>
+                    </div>
+                    <div class="submit-section">
+                        <button type="submit" class="btn btn-primary submit-btn">Ya Lolos</button>
+                        <button type="button "class="btn btn-primary submit-btn" data-dismiss="modal">Tidak, Dicek Kembali</button>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
+</div>
+@endsection
+
+
+@section('script')
+
+<script>
+    $(function(){
+        $(document).on('click','#btn-lolos', function(){
+            let id = $(this).data('id');
+
+            $.ajax({
+                type: "get",
+                url : "{{url('admin/registrasi/ajax/dataRegis')}}/"+id,
+                dataType: 'json',
+                success : function(res){
+                    $('#name-lolos').val(res.name);
+                    $('#id-lolos').val(res.id);
+                    // $('#status-lolos').val(res.status);
+                    $('#byemail-lolos').val(res.byemail);  
+                },
+            });
+        });
+    });
+</script>
 
 @endsection

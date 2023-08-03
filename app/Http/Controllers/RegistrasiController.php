@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illmuinate\Support\Facades\Storage;
 use App\Models\Registrasi;
+use App\Models\Mahasiswa;
 use PDF;
 
 class RegistrasiController extends Controller
@@ -70,6 +71,38 @@ class RegistrasiController extends Controller
         // return redirect()-> route('home')->with ($notification);
     }
     
+    public function getData($id){
+        $registrasi = Registrasi::find($id);
+
+        return response()->json($registrasi);
+    }
+
+    public function lolos_registrasi(Request $req){
+        $registrasi = Registrasi::find($req->get('id'));
+
+        $validate =$req->validate([
+            'status' =>'required',
+        ]);
+
+        $registrasi->status = $req->get('status');
+
+        $registrasi->save();
+
+        $validate =$req->validate([
+            'NPM' =>'required',
+            'name' =>'required',
+            'byemail' =>'required',
+        ]);
+
+        $mahasiswa = new Mahasiswa;
+        $mahasiswa->NPM  = $req->get('name');
+        $mahasiswa->name  = $req->get('name');
+        $mahasiswa->byemail  = $req->get('byemail');
+        $mahasiswa->save();
+
+        return redirect()->route('admin.registrasi');
+    }
+
     public function update_registrasi(Request $req){
         $registrasi= Registrasi::find($req->get('id'));
 

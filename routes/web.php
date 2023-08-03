@@ -23,6 +23,9 @@ Auth::routes();
 Route::get('admin/home', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.home')->middleware('is_admin');
 
 Route::get('admin/registrasi', [App\Http\Controllers\RegistrasiController::class, 'index'])->name('admin.registrasi')->middleware('is_admin');
+Route::patch('admin/registrasi/update', [App\Http\Controllers\RegistrasiController::class, 'lolos_registrasi'])->name('registrasi.lolos')->middleware('is_admin');
+Route::get('/admin/registrasi/ajax/dataRegis/{id}', [App\Http\Controllers\RegistrasiController::class, 'getData']);
+
 Route::get('admin/mahasiswa', [App\Http\Controllers\MahasiswaController::class, 'index'])->name('admin.mahasiswa')->middleware('is_admin');
 
 
