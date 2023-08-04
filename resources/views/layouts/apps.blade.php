@@ -83,9 +83,9 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ route('user.registrasi') }}">
+                    <a href="{{ route('user.pendaftaran') }}">
                         <i class='bx bxs-home'></i>
-                        <span>Registrasi</span>
+                        <span>Pendaftaran</span>
                     </a>
                 </li>
             </ul>    

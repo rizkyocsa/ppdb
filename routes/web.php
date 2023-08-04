@@ -36,5 +36,10 @@ Route::get('mahasiswa/home', [App\Http\Controllers\MahasiswaController::class, '
 //User
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('is_user');
 Route::get('/home/registrasi', [App\Http\Controllers\RegistrasiController::class, 'form_registrasi'])->name('user.registrasi')->middleware('is_user');
-Route::post('/home/registrasi/create', [App\Http\Controllers\RegistrasiController::class, 'submit_registrasi'])->name('create.registrasi')->middleware('is_user');
+// Route::post('/home/registrasi/create', [App\Http\Controllers\RegistrasiController::class, 'submit_registrasi'])->name('create.registrasi')->middleware('is_user');
+Route::post('/home/registrasi/create', [App\Http\Controllers\RegistrasiController::class, 'submit_pendaftaran'])->name('create.registrasi')->middleware('is_user');
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('is_user');
+Route::get('/home/pendaftaran', [App\Http\Controllers\PendaftaranController::class, 'form_pendaftaran'])->name('user.pendaftaran')->middleware('is_user');
+Route::post('/home/pendaftaran/create', [App\Http\Controllers\PendaftaranController::class, 'submit_pendaftaran'])->name('create.pendaftaran')->middleware('is_user');
 

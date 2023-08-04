@@ -12,9 +12,9 @@
         @elseif ($user->roles_id == 2)
             Anda Mahasiswa
         @else
-            @foreach($registrasi as $registrasi)
-                @if($registrasi->byemail === $email)
-                    @php $ada=true; $status = $registrasi->status; @endphp
+            @foreach($pendaftaran as $pendaftaran)
+                @if($pendaftaran->by_email === $email)
+                    @php $ada=true; $status = $pendaftaran->status; @endphp
                 @endif
             @endforeach
             @if($ada)
@@ -26,7 +26,7 @@
                     @php echo("Anda dinyatakan " . $status); @endphp
                 @endif
             @else
-            Silahkan lakukan registrasi pada menu registrasi
+            Silahkan lakukan pendaftaran pada menu pendaftaran
             @endif
         @endif
     </div>
