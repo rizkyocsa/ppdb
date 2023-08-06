@@ -5,9 +5,22 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Pendaftaran;
+use App\Models\User;
 
 class PendaftaranController extends Controller
 {
+    public function index()
+    {
+        $user = Auth::user();
+        // $pendaftaran = pendaftaran::all();
+
+        $query = pendaftaran::query();
+        $query->orderBy('id');
+        $pendaftaran = $query->paginate(10);
+
+        return view('pendaftaran/pendaftaran', compact('user','pendaftaran'));
+    }
+
     public function form_pendaftaran(){
         $user = Auth::user();
         $pendaftaran = pendaftaran::all();
@@ -32,7 +45,6 @@ class PendaftaranController extends Controller
         $pendaftaran -> nama_lengkap = $req->get('nama_lengkap');
         $pendaftaran -> tempat = $req->get('tempat');
         $pendaftaran -> tanggal = $req->get('tanggal');
-        // $pendaftaran -> tanggal = date('Y-m-d');
         $pendaftaran -> jk = $req->get('jk');
         $pendaftaran -> agama = $req->get('agama');
         $pendaftaran -> no_hp = $req->get('no_hp');
@@ -45,7 +57,6 @@ class PendaftaranController extends Controller
         $pendaftaran -> status =$req->get('status');
         $pendaftaran -> by_email =$req->get('byemail');
         
-        // dd($pendaftaran);
         $pendaftaran->save();
 
         // $notification =array(
@@ -57,5 +68,36 @@ class PendaftaranController extends Controller
         // return redirect()-> route('home')->with ($notification);
     }
 
+    public function getData($id){
+        $pendaftaran = pendaftaran::find($id);
+
+        return response()->json($pendaftaran);
+    }
+
+    public function status_pendaftaran(Request $req){
+        $pendaftaran = pendaftaran::find($req->get('id'));
+
+        $validate =$req->validate([
+            'status' =>'required',
+        ]);
+
+        $pendaftaran->status = $req->get('status');
+
+        $pendaftaran->save();
+
+        // $validate =$req->validate([
+        //     'NPM' =>'required',
+        //     'name' =>'required',
+        //     'byemail' =>'required',
+        // ]);
+
+        // $mahasiswa = new Mahasiswa;
+        // $mahasiswa->NPM  = $req->get('name');
+        // $mahasiswa->name  = $req->get('name');
+        // $mahasiswa->byemail  = $req->get('byemail');
+        // $mahasiswa->save();
+
+        return redirect()->route('admin.pendaftaran');
+    }
 
 }

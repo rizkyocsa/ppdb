@@ -5,45 +5,20 @@
 @section('content')
 <div class="main-content user">
     <div class="row">
-        <div class="col-xl-12">
-            
+        <div class="col-xl-12">   
             <div class="box">
-                <!-- <div class="box-body pb-30">
-                    <div class="row">
-                        <div class="col-md-12 col-xl-10 mb-0">
-                            <div class="row">
-                                <div class="col-md-12 col-xl-4 mb-0">
-                                    <div class="form-group"> <label class="form-label">From:</label>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text"><i class='bx bx-calendar'></i> </div>
-                                            </div><input class="form-control fc-datepicker" placeholder="DD-MM-YYYY" type="text"> </div>
-                                    </div>
+                <div class="row">
+                <div class="card-options">
+                            <div class="btn-list d-flex">
+                                <a href="#" class="btn text-primary border-primary d-flex align-items-center mr-5" data-toggle="modal" data-target="#tambahGuru" ><i class="bx bx-plus-circle mr-5"></i>Tambah Guru</a>
+                                <div class="content d-flex align-items-center">
+                                    <h5 class="color-white">Create New Project</h5>
                                 </div>
-                                <div class="col-md-12 col-xl-4 mb-0">
-                                    <div class="form-group"> <label class="form-label">To:</label>
-                                        <div class="input-group">
-                                            <div class="input-group-prepend">
-                                                <div class="input-group-text"><i class='bx bx-calendar'></i> </div>
-                                            </div><input class="form-control fc-datepicker" placeholder="DD-MM-YYYY" type="text"> </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-12 col-xl-4 mb-0">
-                                    <div class="form-group"> <label class="form-label">Select Priority:</label> <select name="attendance" class="form-control custom-select select2 select2-hidden-accessible" data-placeholder="Select Priority" tabindex="-1" aria-hidden="true"
-                                            data-select2-id="select2-data-16-akyu"><option label="Select Priority" data-select2-id="select2-data-18-ezae"></option> <option value="1">High</option> <option value="2">Medium</option> <option value="3">Low</option> </select>
-                                        <span class="select2 select2-container select2-container--default" dir="ltr" data-select2-id="select2-data-17-6y8j" style="width: 100%;"><span class="selection"><span class="select2-selection select2-selection--single" role="combobox" aria-haspopup="true" aria-expanded="false" tabindex="0" aria-disabled="false" aria-labelledby="select2-attendance-ws-container" aria-controls="select2-attendance-ws-container"><span class="select2-selection__rendered" id="select2-attendance-ws-container" role="textbox" aria-readonly="true" title="Select Priority"></span>
-                                        <span class="select2-selection__arrow" role="presentation"><b role="presentation"></b></span>
-                                        </span>
-                                        </span><span class="dropdown-wrapper" aria-hidden="true"></span></span>
-                                    </div>
-                                </div>
+                            </a>
+                            </a>
                             </div>
                         </div>
-                        <div class="col-md-12 col-xl-2 mb-0">
-                            <div class="form-group mt-32"> <a href="#" class="btn bg-primary btn-block color-white">Search</a> </div>
-                        </div>
-                    </div>
-                </div> -->
+                </div>
                 <div class="box-body">
                     <div class="table-responsive">
                         <div id="task-profile_wrapper" class="dataTables_wrapper dt-bootstrap5 no-footer">
@@ -55,6 +30,7 @@
                                     <div id="task-profile_filter" class="dataTables_filter"><label><input type="search" class="form-control form-control-sm" placeholder="Search..." aria-controls="task-profile"></label></div>
                                 </div>
                             </div> -->
+                                 
                             <div class="row">
                                 <div class="col-sm-12">
                                     <table class="table table-vcenter text-nowrap table-bordered dataTable no-footer" id="task-profile" role="grid">
@@ -62,55 +38,25 @@
                                             <tr class="top">
                                                 <th class="border-bottom-0 text-center sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 26.6562px;">No</th>
                                                 <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 222.312px;">Nama</th>
-                                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 84.8281px;">Tempat & Tanggal Lahir</th>
-                                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 87.9844px;">Jenis Kelamin</th>
-                                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 87.9844px;">Agama</th>
-                                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 87.9844px;">No HP</th>
-                                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 71.875px;">Alamat</th>
-                                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 71.875px;">Nama Orang Tua</th>
-                                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 71.875px;">Pekerjaan Orang Tua</th>
-                                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 71.875px;">Status</th>
+                                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 84.8281px;">Jabatan</th>
+                                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 87.9844px;">Foto</th>
                                                 <th class="border-bottom-0 sorting_disabled fs-14 font-w500" rowspan="1" colspan="1" style="width: 145.391px;">Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @php $no=1; @endphp
-                                            @foreach($pendaftaran as $data)
+                                            @foreach($guru as $data)
                                                 <tr class="">
-                                                    <td class="text-center">{{ $loop->iteration + $pendaftaran->firstItem() - 1 }}</td>
-                                                    <td class="text-left">{{$data->nama_lengkap}}</td>
-                                                    <td class="text-left">{{$data->tempat}} , {{$data->tanggal}}</td>
-                                                    <td class="text-left">{{$data->jk}}</td>
-                                                    <td class="text-left">{{$data->agama}}</td>
-                                                    <td class="text-left">{{$data->no_hp}}</td>
-                                                    <td class="text-left">{{$data->alamat}}</td>
-                                                    <td class="text-center">
-                                                        @if($data->nama_ayah !== null)
-                                                            Pak {{$data->nama_ayah}}
-                                                        @elseif($data->nama_ibu !== null)
-                                                            Ibu {{$data->nama_ibu}}
+                                                    <td class="text-center">{{ $loop->iteration + $guru->firstItem() - 1 }}</td>
+                                                    <td class="text-left">{{$data->judul}}</td>
+                                                    <td class="text-left">{{$data->sub-judul}}</td>
+                                                    <td class="text-left">
+                                                        @if($data->image !== null)
+                                                            <img src="{{ asset('storage/post/'.$data->image) }}" width="100px"/>
                                                         @else
-                                                            {{$data->nama_wali}}
+                                                            [Gambar tidak tersedia]
                                                         @endif
                                                     </td>
-                                                    <td class="text-center">
-                                                        @if($data->pekerjaan_ayah !== null)
-                                                            {{$data->pekerjaan_ayah}}
-                                                        @elseif($data->pekerjaan_ibu !== null)
-                                                            {{$data->pekerjaan_ibu}}
-                                                        @else
-                                                            {{$data->pekerjaan_wali}}
-                                                        @endif
-                                                    </td>
-                                                    @if($data->status == "lolos")
-                                                        <td><span class="badge badge-success">{{$data->status}}</span></td>
-                                                    @elseif($data->status == "proses")
-                                                        <td><span class="badge badge-warning">{{$data->status}}</span></td>
-                                                    @else
-                                                     <td><span class="badge badge-danger">Tidak lolos</span></td>
-                                                    @endif
-                                                    <td>
-                                                    
                                                         <div class="dropdown">
                                                             <a href="javascript:void(0);" class="btn-link" data-bs-toggle="dropdown" aria-expanded="false">
                                                                 <i class='bx bx-dots-horizontal-rounded'></i>
@@ -130,7 +76,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                {{ $pendaftaran->links('vendor.pagination.bootstrap-4')}}
+                                {{ $guru->links('vendor.pagination.bootstrap-4')}}
                                 <!-- <div class="col-sm-12 col-md-5">
                                     <div class="dataTables_info" id="task-profile_info" role="status" aria-live="polite">Showing 1 to 8 of 8 entries</div>
                                 </div>
@@ -150,6 +96,135 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div id="tambahGuru" class="modal custom-modal fade" style="display: block;" aria-modal="true" role="dialog">
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Create Project</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="row">
+                        <div class="col-sm-6 mb-0">
+                            <div class="form-group">
+                                <label>Project Name</label>
+                                <input class="form-control" value="" type="text">
+                            </div>
+                        </div>
+                        <div class="col-sm-6 mb-0">
+                            <div class="form-group">
+                                <label>Client</label>
+                                <select class="select">
+                                    <option>Client 1</option>
+                                    <option>Client 2</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 mb-0">
+                            <div class="form-group">
+                                <label>Start Date</label>
+                                <div class="cal-icon">
+                                    <input class="form-control " type="date">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 mb-0">
+                            <div class="form-group">
+                                <label>End Date</label>
+                                <div class="cal-icon">
+                                    <input class="form-control" type="date">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3 mb-0">
+                            <div class="form-group">
+                                <label>Rate</label>
+                                <input placeholder="$50" class="form-control" value="" type="text">
+                            </div>
+                        </div>
+                        <div class="col-sm-3 mb-0">
+                            <div class="form-group">
+                                <label>&nbsp;</label>
+                                <select class="select">
+                                    <option>Hourly</option>
+                                    <option selected="">Fixed</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 mb-0">
+                            <div class="form-group">
+                                <label>Priority</label>
+                                <select class="select">
+                                    <option selected="">High</option>
+                                    <option>Medium</option>
+                                    <option>Low</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea rows="4" class="form-control" placeholder="Enter your message here"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Upload Files</label>
+                        <input class="form-control" type="file">
+                    </div>
+                    <div class="submit-section">
+                        <button class="btn btn-primary submit-btn">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<div class="modal custom-modal fade" id="tambahGuru" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="form-header">
+                    <h5 class="modal-title">Tambah Guru</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+            <div class="modal-body">
+                <form action="" method="post">
+                @csrf
+                @method('PATCH')
+                    <div class="row">                       
+                        <div class="form-group">
+                            <label>Apakah pendaftar ini lolos</label>
+                            <div class="form-group">
+                                <input class="form-control" id="name-pendaftaran"  name="name" type="text">
+                            </div>
+                            <!-- <div class="form-group">
+                                <input class="form-control" id="ayah-pendaftaran"  name="name" type="text">
+                            </div> -->
+                            <input class="form-control" id="id-pendaftaran"  name="id" type="text" hidden>
+                            <input class="form-control" id="byemail-pendaftaran"  name="byemail" type="text" hidden>
+                            <input class="form-control" id="status-pendaftaran" value="lolos" name="status" type="text" hidden>
+                        </div>
+                    </div>
+                    <div class="submit-section">
+                        <button type="submit" class="btn btn-primary submit-btn">Ya Lolos</button>
+                        <button type="button "class="btn btn-primary submit-btn" data-dismiss="modal">Tidak, Dicek Kembali</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
@@ -191,7 +266,6 @@
     </div>
 </div>
 @endsection
-
 
 @section('script')
 

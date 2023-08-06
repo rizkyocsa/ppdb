@@ -26,7 +26,8 @@
     <link rel="stylesheet" href="{{ asset('homes/css/responsive.css') }}">
 </head>
 
-<body class="main-auth">
+<body class="main-auth" style="background-image: url( {{asset('image/bg-login.png')}} ); background-attachment: fixed;
+  background-size: 100% 100%;  ">
 
     <!-- SIDEBAR -->
     <!-- <div class="sidebar">
@@ -55,7 +56,7 @@
     <!-- End Main Header -->
     <!-- MAIN CONTENT -->
 
-    <div class="main-content-auth">
+    <div class="main-content-auth" style="">
     @yield('content')
     </div>
     <!-- END MAIN CONTENT -->

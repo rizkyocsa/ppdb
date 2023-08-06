@@ -30,7 +30,7 @@
 
 	<!-- Document Title
     ============================================= -->
-	<title>Leagl | Legal Firm Html5 onepage</title>
+	<title>PPDB | SD Negeri Selajambe 4</title>
 </head>
 
 <body class="body-scroll">
@@ -57,12 +57,12 @@
 <section id="slider" class="section slider">
 	<div class="slide--item bg-overlay bg-overlay-dark">
 		<div class="bg-section">
-			<img src="{{ asset('welcome/images/slider/slide-1.jpg') }}" alt="bg">
+			<img src="{{asset('image/bg.jpeg')}}" alt="bg">
 		</div>
 		<div class="container">
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 text-center wow fadeInUp" data-wow-duration="1s">
-					<div class="slide--headline">Welcome to Legal Firm</div>
+					<div class="slide--headline">Selamat datang</div>
 				</div>
 				<div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3 text-center wow fadeInUp" data-wow-duration="1s">
 					<div class="slide--bio">This should be used to tell a story and let your users know a little more about your service.</div>
@@ -161,13 +161,13 @@
 			<!-- .col-md-6 end -->
 			<div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-1">
 				<div class="heading heading-1 mt-70 wow fadeInUp" data-wow-duration="1s">
-					<h2 class="heading--title">About Our Firm</h2>
+					<h2 class="heading--title">Tentang SDN Selajambe 4</h2>
 					<div class="heading--divider"></div>
 				</div>
 				<div class="about-content wow fadeInUp" data-wow-duration="1s">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sede do eiusmod tempor incididunt ut labore dolore magna aliqa Ut enim ad minim veniam, quis nostrud exercitation.</p>
+					<p>SD Negeri Selajambe 4 beralamat di Jalan Selajambe Kp. Pasirparahu, Desa Selajambe Kecamatan Sukaluyu Kabupaten Cianjur Propinsi Jawa Barat. SD Negeri Selajambe 4 mulai beroperasi pada tahun pelajaran 1975/1976 atas dasar Instruksi Presiden Republik Indonesia (Inpres) nomor 10/1973 tentang Program Pembangunan Gedung SD dan tercatat SD Negeri Selajambe 4 memilik nomor statistik sekolah (NSS) 101020704036.  Saat itu SD Negeri Selajambe 4 dikenal dengan nama SD INPRES karena didirikan atas dasar Program Intruksi Presiden diatas dan juga merupakan sekolah imbas dari SD Induk yaitu SD Negeri Selajambe 1 dan 2. Mengingat wilayah desa selajambe sangat luas saat itu masih berada diwilayah Kecamatan Ciranjnag belum ada pemekaran desa dan kecamatan sedangkan sarana pendidikan formal setingkat SD di wilayah desa selajambe baru ada 3 maka mengacu kepada Inpres tersebut diatas, atas inisiatip pemerintah desa selajambe dibawah kepemimpinan Kades Appandi serta masyarakat Kp. Pasirparahu dan Kamiran mengajukan kebutuhan sarana pendidikan tersebut sehingga tahun 1974 mulailah dibangun SD Inpres Selajambe 4 dan selesai pembangunan pada tahun 1975. Maka untuk tahun pelajaran pertama ditetapkan yaitu tahun 1975-1976.</p>
 					<p>Euis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupida.</p>
-					<img class="signture" src="{{ asset('welcome/images/background/signture.png') }}" alt="signture">
+					<!-- <img class="signture" src="{{ asset('welcome/images/background/signture.png') }}" alt="signture"> -->
 				</div>
 			</div>
 			<!-- .col-md-6 end -->
@@ -184,8 +184,13 @@
 		<div class="row clearfix">
 			<div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3">
 				<div class="heading heading-1 text--center wow fadeInUp" data-wow-duration="1s">
-					<h2 class="heading--title">Practice Areas</h2>
-					<p class="heading--desc">Lorem ipsum dolor amet, consectetur adipisice elitesede eiusmod tempor incidide labeore dolore magna.</p>
+					<h2 class="heading--title">Visi</h2>
+					<p class="heading--desc">Lorem ipsum dolor amet, consectetur adipisice  eiusmod tempor incidide labeore dolore magna.</p>
+					<div class="heading--divider mb-80 heading--center"></div>
+				</div>
+				<div class="heading heading-1 text--center wow fadeInUp" data-wow-duration="1s">
+					<h2 class="heading--title">Misi</h2>
+					<p class="heading--desc">Lorem ipsum dolor amet, consectetur adipisice  eiusmod tempor incidide labeore dolore magna.</p>
 					<div class="heading--divider mb-80 heading--center"></div>
 				</div>
 			</div>
@@ -295,8 +300,7 @@
 		<div class="row clearfix">
 			<div class="col-xs-12 col-sm-12 col-md-6 col-md-offset-3">
 				<div class="heading heading-1 text--center wow fadeInUp" data-wow-duration="1s">
-					<h2 class="heading--title">Experted Attorneys</h2>
-					<p class="heading--desc">Lorem ipsum dolor amet, consectetur adipisice elitesede eiusmod tempor incidide labeore dolore magna.</p>
+					<h2 class="heading--title">Guru SDN Selajambe 4</h2>
 					<div class="heading--divider mb-80 heading--center"></div>
 				</div>
 			</div>
@@ -306,84 +310,19 @@
 		<div class="row">
 			<!-- Member #1 -->
 			<div class="col-xs-12 col-sm-4 col-md-4">
+				@foreach($guru as $data)
 				<div class="member">
 					<div class="member-img">
 						<img src="{{ asset('welcome/images/team/team-1.jpg') }}" alt="member"/>
-						<div class="member-overlay">
-							<div class="member-social">
-								<div class=" pos-vertical-center">
-									<a href="#"><i class="fa fa-facebook"></i></a>
-									<a href="#"><i class="fa fa-twitter"></i></a>
-									<a href="#"><i class="fa fa-google-plus"></i></a>
-									<a href="#"><i class="fa fa-linkedin"></i></a>
-								</div>
-							</div>
-						</div>
-						<!-- .memebr-ovelay end -->
 					</div>
 					<!-- .member-img end -->
 					<div class="member-info">
-						<h5>Mark Smith</h5>
-						<h6>CEO & Manager</h6>
+						<h5>{{ $data->judul }}</h5>
+						<h6>{{ $data->sub-judul }}</h6>
 					</div>
 					<!-- .member-info end -->
 				</div>
-				<!-- .member end -->
-			</div>
-			<!-- .col-md-3 end -->
-
-			<!-- Member #2 -->
-			<div class="col-xs-12 col-sm-4 col-md-4">
-				<div class="member">
-					<div class="member-img">
-						<img src="{{ asset('welcome/images/team/team-2.jpg') }}" alt="member"/>
-						<div class="member-overlay">
-							<div class="member-social">
-								<div class=" pos-vertical-center">
-									<a href="#"><i class="fa fa-facebook"></i></a>
-									<a href="#"><i class="fa fa-twitter"></i></a>
-									<a href="#"><i class="fa fa-google-plus"></i></a>
-									<a href="#"><i class="fa fa-linkedin"></i></a>
-								</div>
-							</div>
-						</div>
-						<!-- .memebr-ovelay end -->
-					</div>
-					<!-- .member-img end -->
-					<div class="member-info">
-						<h5>Ryan Printz</h5>
-						<h6>Family Lawyer</h6>
-					</div>
-					<!-- .member-info end -->
-				</div>
-				<!-- .member end -->
-			</div>
-			<!-- .col-md-3 end -->
-
-			<!-- Member #3 -->
-			<div class="col-xs-12 col-sm-4 col-md-4">
-				<div class="member">
-					<div class="member-img">
-						<img src="{{ asset('welcome/images/team/team-3.jpg') }}" alt="member"/>
-						<div class="member-overlay">
-							<div class="member-social">
-								<div class=" pos-vertical-center">
-									<a href="#"><i class="fa fa-facebook"></i></a>
-									<a href="#"><i class="fa fa-twitter"></i></a>
-									<a href="#"><i class="fa fa-google-plus"></i></a>
-									<a href="#"><i class="fa fa-linkedin"></i></a>
-								</div>
-							</div>
-						</div>
-						<!-- .memebr-ovelay end -->
-					</div>
-					<!-- .member-img end -->
-					<div class="member-info">
-						<h5>Steve Martin</h5>
-						<h6>Financial Lawyer</h6>
-					</div>
-					<!-- .member-info end -->
-				</div>
+				@endforeach
 				<!-- .member end -->
 			</div>
 			<!-- .col-md-3 end -->

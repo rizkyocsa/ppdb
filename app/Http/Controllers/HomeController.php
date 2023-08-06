@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 // use App\Models\Registrasi;
 use App\Models\Pendaftaran;
+use App\Models\Post;
 
 class HomeController extends Controller
 {
@@ -16,11 +17,21 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
+    public function home()
+    {
+        // $user = Auth::user();
+        // $registrasi = Registrasi::all();
+        $guru = Post::all()->where('kategori', 'guru');
+        $pendaftaran = pendaftaran::all();
+        return view('welcome', compact('pendaftaran', 'guru'));
+    }
+
     public function index()
     {
         $user = Auth::user();
         // $registrasi = Registrasi::all();
+        // $guru = Post::all()->where('kategori', 'guru');
         $pendaftaran = pendaftaran::all();
-        return view('home', compact('user','pendaftaran'));
+        return view('home', compact('user', 'pendaftaran'));
     }
 }

@@ -19,7 +19,8 @@
 
 @section('content')
 
-<div class="main-content">
+<div class="main-content" style="">
+<!-- {{ asset('homes/css/bootstrap.min.css') }} -->
     <section class="login">
         <div class="row">
             <div class="col-12">

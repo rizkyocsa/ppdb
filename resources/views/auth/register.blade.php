@@ -1,6 +1,6 @@
 @extends('layouts.auth')
 
-@section('title', 'Login')
+@section('title', 'Register')
 
 @section('sidebar')
     <li>
@@ -75,13 +75,13 @@
                                     </div>
 
                                     <div class="input-group auth-pass-inputgroup">
-                                            <input type="password" class="form-control @error('password-confirm') is-invalid @enderror" placeholder="Enter password again" aria-label="Password" aria-describedby="password-addon" id="password-confirm" name="password_confirmation">
-                                            <button class="btn shadow-none ms-0" type="button" id="password-addon"><i class="far fa-eye-slash"></i></button>
-                                            @error('password-confirm')
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                            @enderror
+                                        <input type="password" class="form-control @error('password-confirm') is-invalid @enderror" placeholder="Enter password again" aria-label="Password" aria-describedby="password-addon" id="password-confirm" name="password_confirmation">
+                                        <button class="btn shadow-none ms-0" type="button" id="password-addon"><i class="far fa-eye-slash"></i></button>
+                                        @error('password-confirm')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                        @enderror
                                     </div>
                                 </div>
                                 
@@ -97,19 +97,18 @@
 
                                 </div>
                                 <div class="mb-3">
-                                    <button class="btn bg-primary color-white w-100 waves-effect waves-light fs-18 font-w500" type="submit">Sign in</button>
+                                    <button class="btn bg-primary color-white w-100 waves-effect waves-light fs-18 font-w500" type="submit">Sign Up</button>
                                 </div>
                             </form>
 
-                            <div class="mt-20 pt-2 text-center">
+                            <!-- <div class="mt-20 pt-2 text-center">
                                 <div class="signin-other-title">
                                     <a href="{{ route('password.request') }}" class="text-muted fs-14">Forgot password?</a>
                                 </div>
-
-                            </div>
+                            </div> -->
 
                             <div class="mt-37 text-center">
-                                <p class="text-muted mb-0 fs-14">Don't have an account ? <a href="{{ route('register') }}" class="text-primary fw-semibold">  Create Account </a> </p>
+                                <p class="text-muted mb-0 fs-14">Have an account ? <a href="{{ route('login') }}" class="text-primary fw-semibold">  Login </a> </p>
                             </div>
 
                         </div>

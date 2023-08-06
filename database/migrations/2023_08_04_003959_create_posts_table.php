@@ -16,9 +16,11 @@ class CreatePostsTable extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('judul');
-            $table->string('deskripsi');
-            $table->string('image');
-            $table->string('tgl');
+            $table->string('sub-judul')->nullable();
+            $table->text('deskripsi')->nullable();
+            $table->text('kategori');
+            $table->string('image')->nullable();
+            $table->date('tgl');
             $table->timestamps();
         });
     }

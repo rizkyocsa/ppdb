@@ -32,7 +32,7 @@
     <div class="sidebar">
         <div class="sidebar-logo">
             <a href="index.html">
-                <img src="./images/logo.png" alt="Protend logo">
+                <!-- <img src="./images/logo.png" alt="Protend logo"> -->
             </a>
             <div class="sidebar-close" id="sidebar-close">
                 <i class='bx bx-left-arrow-alt'></i>
@@ -49,19 +49,57 @@
                         <i class='bx bxs-home'></i>
                         <span>Dashboard</span>
                     </a>
-                </li>
-                <li>
-                    <a href="{{ route('admin.registrasi') }}">
-                        <i class='bx bxs-dashboard'></i>
-                        <span>Registrasi</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ route('admin.mahasiswa') }}">
+                </li>     
+                <!-- <li>
+                    <a href="{{ route('admin.user') }}">
                         <i class='bx bx-calendar'></i>
-                        <span>Mahasiswa</span>
+                        <span>User</span>
                     </a>
-                </li>      
+                </li>       -->
+                <li>
+                    <a href="{{ route('admin.pendaftaran') }}">
+                        <i class='bx bxs-user'></i>
+                        <span>Pendaftaran</span>
+                    </a>
+                </li>
+                <li class="sidebar-submenu">
+                    <a href="project.html" class="sidebar-menu-dropdown menu-item">
+                        <i class='bx bxs-bolt'></i>
+                        <span>Posting</span>
+                        <div class="dropdown-icon"><i class='bx bx-chevron-down'></i></div>
+                    </a>
+                    <ul class="sidebar-menu sidebar-menu-dropdown-content">
+                        <li>
+                            <a href="project.html">
+                               Pengumuman
+                            </a>
+                        </li>
+                        <li>
+                            <a href="new-project.html">
+                                Tentang Sekolah
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="sidebar-submenu">
+                    <a href="project.html" class="sidebar-menu-dropdown menu-item">
+                        <i class='bx bxs-component' ></i>
+                        <span>Guru</span>
+                        <div class="dropdown-icon"><i class='bx bx-chevron-down'></i></div>
+                    </a>
+                    <ul class="sidebar-menu sidebar-menu-dropdown-content">
+                        <li>
+                            <a href="{{ route('admin.guru') }}">
+                               Master Data
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                Tambah Guru
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         @endif
         @if($user->roles_id == 2)
@@ -84,7 +122,7 @@
                 </li>
                 <li>
                     <a href="{{ route('user.pendaftaran') }}">
-                        <i class='bx bxs-home'></i>
+                        <i class='bx bxs-user'></i>
                         <span>Pendaftaran</span>
                     </a>
                 </li>
