@@ -165,6 +165,7 @@
                                                             </a>
                                                             <div class="dropdown-menu dropdown-menu-right">
                                                                 <button type="button" id="btn-lolos" data-toggle="modal" class="dropdown-item" data-target="#edit-lolos" data-id="{{$data->id}}"><span class="bx bx-edit mr-5"></span>Lolos</button>
+                                                                <button type="button" id="btn-edit" data-toggle="modal" class="dropdown-item" data-target="#edit-pendaftaran" data-id="{{$data->id}}"><span class="bx bx-edit mr-5"></span>Edit</button>
                                                                 <!-- <a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_client"><i class="bx bx-edit mr-5"></i>Tidak Lolos</a>
                                                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_client"><i class="bx bx-edit mr-5"></i>Edit</a>
                                                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_client"><i class="bx bx-trash"></i> Delete</a> -->
@@ -238,6 +239,62 @@
         </div>
     </div>
 </div>
+
+<div class="modal custom-modal fade" id="edit-pendaftaran" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="form-header">
+                    <h5 class="modal-title">Edit Data</h5>
+                </div>
+            </div>
+            <div class="modal-body">
+                <form action="{{ route('admin.user.update') }}" method="post">
+                @csrf
+                @method('PATCH')
+                    <div class="row">                       
+                        <div class="form-group">
+                            <label>Nama</label>
+                            <div class="form-group">
+                                <input class="form-control" id="nama-pendaftaran"  name="nama" type="text">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Tempat</label>
+                                <div class="form-group">
+                                    <input class="form-control" id="tempat-pendaftaran"  name="tempat" type="text">
+                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label>No HP</label>
+                                <div class="form-group">
+                                    <input class="form-control" id="noHP-pendaftaran"  name="nohp" type="text">
+                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Alamat</label>
+                                <div class="form-group">
+                                    <input class="form-control" id="alamat-pendaftaran"  name="alamat" type="text">
+                                </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Nama Ayah</label>
+                                <div class="form-group">
+                                    <input class="form-control" id="namaayah-pendaftaran"  name="nama_ayah" type="text">
+                                </div>
+                        </div>
+                    </div>
+                    <input class="form-control" id="id-pendaftaran" value="{{ $data->id }}" name="id" type="text" hidden>
+                    <input class="form-control" id="email-pendaftaran"  name="byemail" type="text" hidden>
+                    <div class="submit-section">
+                        <button type="submit" class="btn btn-primary submit-btn">Ya Lolos</button>
+                        <button type="button "class="btn btn-primary submit-btn" data-dismiss="modal">Tidak, Dicek Kembali</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection
 
 
@@ -258,6 +315,39 @@
                     // $('#ayah-pendaftaran').val(res.nama_ayah);
                     $('#byemail-pendaftaran').val(res.by_email);  
                     console.log(res);
+                },
+            });
+        });
+    });
+
+    $(function(){
+        $(document).on('click','#btn-edit', function(){
+            let id = $(this).data('id');
+
+            $.ajax({
+                type: "get",
+                url : "{{url('admin/pendaftaran/ajax/data')}}/"+id,
+                dataType: 'json',
+                success : function(res){
+                    $('#id-pendaftaran').val(res.id);
+                    $('#nama-pendaftaran').val(res.nama_lengkap);
+                    $('#tempat-pendaftaran').val(res.tempat);
+                    $('#tanggal-pendaftaran').val(res.tgl);
+                    $('#jl-pendaftaran').val(res.jk);
+                    $('#agama-pendaftaran').val(res.agama);
+                    $('#noHP-pendaftaran').val(res.no_hp);
+                    $('#alamat-pendaftaran').val(res.alamat);
+                    $('#namaayah-pendaftaran').val(res.nama_ayah);
+                    $('#kerjaayah-pendaftaran').val(res.pekerjaan_ayah);
+                    $('#namaibu-pendaftaran').val(res.nama_ibu);
+                    $('#kerjaibu-pendaftaran').val(res.pekerjaan_ibu);
+                    $('#fotokk-pendaftaran').val(res.foto_kk);
+                    $('#namawali-pendaftaran').val(res.nama_wali);
+                    $('#kerjawali-pendaftaran').val(res.pekerjaan_wali);
+                    $('#alamatwali-pendaftaran').val(res.alamat_wali);
+                    $('#fotokkwali-pendaftaran').val(res.foto_kk_wali);
+                    $('#email-pendaftaran').val(res.by_email);  
+                    console.log(res.nama_lengkap);
                 },
             });
         });

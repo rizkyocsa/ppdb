@@ -24,7 +24,8 @@ class HomeController extends Controller
         // $guru = Post::all()->where('kategori', 'guru');
         $daftar = Pendaftaran::all()->count();
         $users = User::all()->count();
+        $lulus = User::all()->where('status', 'lulus')->count();
         $pendaftaran = pendaftaran::all();
-        return view('home', compact('user', 'pendaftaran', 'users', 'daftar'));
+        return view('home', compact('user', 'pendaftaran', 'users', 'daftar', 'lulus'));
     }
 }

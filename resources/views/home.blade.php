@@ -5,7 +5,6 @@
 @section('content')
 <div class="main-content">
     <div class="box-body">
-    
     @php $email=Auth::user()->email; $ada=false; $status=""; @endphp
         @if ($user->roles_id == 1)
         <!-- Tampilan Dashboard Admin -->
@@ -28,15 +27,26 @@
                         <i class='bx bx-task'></i>
                     </div>
                     <div class="content click-c">
-                        <h5 class="title-box fs-15 mt-2">Total User</h5>
+                        <h5 class="title-box fs-15 mt-2">Pendaftar Lulus</h5>
                         <div class="themesflat-counter fs-14 font-wb color-2">
+                            <span class="number" data-from="0" data-to="309" data-speed="2500" data-inviewport="yes">{{ $lulus }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="icon-box bg-color-3">
+                    <div class="icon bg-icon-3">
+                        <i class='bx bx-task'></i>
+                    </div>
+                    <div class="content click-c">
+                        <h5 class="title-box fs-15 mt-2">Total User</h5>
+                        <div class="themesflat-counter fs-14 font-wb color-3">
                             <span class="number" data-from="0" data-to="309" data-speed="2500" data-inviewport="yes">{{ $users }}</span>
                         </div>
                     </div>
-
                 </div>
             </div>   
         @elseif ($user->roles_id == 2)
+        {{$pendaftaran}}
             Anda Mahasiswa
         @else
             @foreach($pendaftaran as $pendaftaran)
@@ -44,16 +54,11 @@
                     @php $ada=true; $status = $pendaftaran->status; @endphp
                 @endif
             @endforeach
+            
             @if($ada)
-                @if($status==='proses')
-                    @php echo("Pendaftaran anda dalam " . $status); @endphp
-                @elseif($status==='lolos')
-                    @php echo("Anda dinyatakan " . $status . " tunggu proses selesai menjadi mahasiswa"); @endphp
-                @elseif($status==='tidak lolos')
-                    @php echo("Anda dinyatakan " . $status); @endphp
-                @endif
+                @php echo("Pendaftaran anda  " . $status); @endphp
             @else
-            Silahkan lakukan pendaftaran pada menu pendaftaran
+                Silahkan lakukan pendaftaran pada menu pendaftaran
             @endif
         @endif
     </div>

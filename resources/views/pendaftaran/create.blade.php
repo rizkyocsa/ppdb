@@ -6,10 +6,11 @@
 <div class="main-content project" >
     <div class="row">
         <div class="col-12">
-            @php $email=Auth::user()->email; $ada=false; @endphp
+            @php $email=Auth::user()->email; $ada=false; $status="proses"; @endphp
             @foreach($pendaftaran as $pendaftaran)
                 @if($pendaftaran->by_email === $email)
                     @php $ada=true; @endphp
+                    @php $status = $pendaftaran->status; @endphp
                 @endif
             @endforeach
             @if($ada)
@@ -25,7 +26,8 @@
                             <div class="col-sm-12 mb-24">
                                 <div class="form-group"> 
                                     <label class="form-label">Nama Lengkap</label> 
-                                    <input class="form-control" value="{{$pendaftaran->nama_lengkap}}" placeholder="Nama" name="nama_lengkap" id="nama_lengkap" required/>  
+                                    <input class="form-control" value="{{$pendaftaran->nama_lengkap}}" placeholder="Nama" name="nama_lengkap" id="nama_lengkap" 
+                                    {{ $status == "proses" ? 'required' : 'disabled' }}/>  
                                 </div>
                             </div>
                         </div>
@@ -33,7 +35,8 @@
                             <div class="col-sm-12 mb-24">
                                 <div class="form-group"> 
                                     <label class="form-label">Tempat Lahir</label> 
-                                    <input class="form-control" value="{{$pendaftaran->tempat}}" placeholder="Tempat"  name="tempat" id="tempat" required/> 
+                                    <input class="form-control" value="{{$pendaftaran->tempat}}" placeholder="Tempat"  name="tempat" id="tempat"
+                                    {{ $status == "proses" ? 'required' : 'disabled' }}/> 
                                 </div>
                             </div>
                         </div>
@@ -41,7 +44,8 @@
                             <div class="col-sm-12 mb-24">
                                 <div class="form-group"> 
                                     <label class="form-label">Tanggal Lahir</label> 
-                                    <input class="form-control" value="{{$pendaftaran->tanggal}}" type="date" name="tanggal" id="tanggal" required/>
+                                    <input class="form-control" value="{{$pendaftaran->tanggal}}" type="date" name="tanggal" id="tanggal"
+                                    {{ $status == "proses" ? 'required' : 'disabled' }}/>
                                     <!-- <input class="form-control" placeholder="Jurusan"  name="tanggal" id="tanggal" required/>  -->
                                 </div>
                             </div>
@@ -50,7 +54,7 @@
                             <div class="col-sm-12 mb-24">
                                 <div class="form-group">
                                     <label>Jenis Kelamin</label>
-                                    <select class="select" name="jk" id="jk">
+                                    <select class="select" name="jk" id="jk" {{ $status == "proses" ? 'required' : 'disabled' }}>
                                         <option value="">-- Jenis Kelamin --</option>
                                         <option value="L" {{ $pendaftaran->jk == "L" ? 'selected' : '' }} > Laki - Laki </option>
                                         <option value="P" {{ $pendaftaran->jk == "P" ? 'selected' : '' }} > Perempuan </option>
@@ -62,7 +66,7 @@
                             <div class="col-sm-12 mb-24">
                                 <div class="form-group">
                                     <label>Agama</label>
-                                    <select class="select" name="agama" id="agama">
+                                    <select class="select" name="agama" id="agama" {{ $status == "proses" ? 'required' : 'disabled' }}>
                                         <option value="">-- Agama --</option>
                                         <option value="Budha" {{ $pendaftaran->agama == "Budha" ? 'selected' : '' }} >Budha</option>
                                         <option value="Islam" {{ $pendaftaran->agama == "Islam" ? 'selected' : '' }} >Islam</option>
@@ -77,7 +81,8 @@
                             <div class="col-sm-12 mb-24">
                                 <div class="form-group"> 
                                     <label class="form-label">No HP</label> 
-                                    <input class="form-control" value="{{$pendaftaran->no_hp}}" placeholder="No HP"  name="no_hp" id="no_hp" required/> 
+                                    <input class="form-control" value="{{$pendaftaran->no_hp}}" placeholder="No HP"  name="no_hp" id="no_hp"
+                                    {{ $status == "proses" ? 'required' : 'disabled' }}/> 
                                 </div>
                             </div>
                         </div>
@@ -85,7 +90,8 @@
                             <div class="col-sm-12 mb-24">
                                 <div class="form-group"> 
                                     <label class="form-label">Alamat</label> 
-                                    <input class="form-control" value="{{$pendaftaran->alamat}}" placeholder="Alamat"  name="alamat" id="alamat" required/> 
+                                    <input class="form-control" value="{{$pendaftaran->alamat}}" placeholder="Alamat"  name="alamat" id="alamat"
+                                    {{ $status == "proses" ? 'required' : 'disabled' }}/> 
                                 </div>
                             </div>
                         </div>
@@ -93,7 +99,8 @@
                             <div class="col-sm-12 mb-24">
                                 <div class="form-group"> 
                                     <label class="form-label">Nama Ayah</label> 
-                                    <input class="form-control" value="{{$pendaftaran->nama_ayah}}" placeholder="Nama Ayah"  name="nama_ayah" id="nama_ayah" /> 
+                                    <input class="form-control" value="{{$pendaftaran->nama_ayah}}" placeholder="Nama Ayah"  name="nama_ayah" id="nama_ayah" 
+                                    {{ $status == "proses" ? '' : 'disabled' }}/> 
                                 </div>
                             </div>
                         </div>
@@ -101,7 +108,8 @@
                             <div class="col-sm-12 mb-24">
                                 <div class="form-group"> 
                                     <label class="form-label">Pekerjaan Ayah</label> 
-                                    <input class="form-control" value="{{$pendaftaran->pekerjaan_ayah}}" placeholder="Pekerjaan Ayah"  name="pekerjaan_ayah" id="pekerjaan_ayah" /> 
+                                    <input class="form-control" value="{{$pendaftaran->pekerjaan_ayah}}" placeholder="Pekerjaan Ayah"  name="pekerjaan_ayah" id="pekerjaan_ayah"
+                                    {{ $status == "proses" ? '' : 'disabled' }}/> 
                                 </div>
                             </div>
                         </div>
@@ -109,7 +117,8 @@
                             <div class="col-sm-12 mb-24">
                                 <div class="form-group"> 
                                     <label class="form-label">Nama Ibu</label> 
-                                    <input class="form-control" value="{{$pendaftaran->nama_ibu}}" placeholder="Nama Ibu"  name="nama_ibu" id="nama_ibu" /> 
+                                    <input class="form-control" value="{{$pendaftaran->nama_ibu}}" placeholder="Nama Ibu"  name="nama_ibu" id="nama_ibu" 
+                                    {{ $status == "proses" ? '' : 'disabled' }}/> 
                                 </div>
                             </div>
                         </div>
@@ -117,24 +126,27 @@
                             <div class="col-sm-12 mb-24">
                                 <div class="form-group"> 
                                     <label class="form-label">Pekerjaan Ibu</label> 
-                                    <input class="form-control" value="{{$pendaftaran->pekerjaan_ibu}}" placeholder="Pekerjaan Ibu"  name="pekerjaan_ibu" id="pekerjaan_ibu" /> 
+                                    <input class="form-control" value="{{$pendaftaran->pekerjaan_ibu}}" placeholder="Pekerjaan Ibu"  name="pekerjaan_ibu" id="pekerjaan_ibu"
+                                    {{ $status == "proses" ? '' : 'disabled' }}/> 
                                 </div>
                             </div>
                         </div>
                         <div class="row">
                             <div class="form-group"> <label class="form-label">Foto KK:</label>
                                 <div class="input-group file-browser"> 
-                                    <input type="text" class="form-control border-end-0 browse-file" placeholder="choose" id="placeKK" readonly="true"> 
+                                    <input type="text" class="form-control border-end-0 browse-file" placeholder="{{$pendaftaran->foto_kk}}" id="placeKK" readonly="true" > 
                                     <label class="input-group-append mb-0"> <span class="btn ripple btn-light"> Browse 
-                                    <input type="file" class="file-browserinput" style="display: none;" multiple="" name="foto_kk" id="foto_kk" onclick="alertnilaiUN()" required/> </span> </label>                                            </div>
+                                    <input type="file" class="file-browserinput" style="display: none;" multiple="" name="foto_kk" id="foto_kk" onclick="alertnilaiUN()"   
+                                    {{ $status == "proses" ? '' : 'disabled' }}/> </span> </label>                                            
+                                </div>
                             </div>
                         </div>
                     </div>
                     <input class="form-control" value="proses" placeholder=""  name="status" id="status" hidden/> 
                     <input class="form-control" value="{{{Auth::user()->email }}}" placeholder=""  name="byemail" id="byemail" hidden/> 
-                    <input class="form-control" value="{{$pendaftaran->id}}" placeholder=""  name="id" id="id" hidden/>
+                    <input class="form-control" value="{{$pendaftaran->id}}"  name="id" id="id" hidden/>
                     <div class="gr-btn mt-15">
-                        <button type="submit" class="btn btn-primary btn-lg fs-16">EDIT</button>
+                        <button type="submit" class="btn btn-primary btn-lg fs-16 " {{ $status == "proses" ? '' : 'disabled' }}>EDIT</button>
                     </div>
                 </form>       
             </div>
