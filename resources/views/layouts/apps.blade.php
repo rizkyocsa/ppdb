@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <!-- BOXICONS -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-    <link rel="stylesheet" href="{{ asset('homes/css/bootstrap.min.css') }}css/icons.min.css">
+    <link rel="stylesheet" href="{{ asset('homes/css/bootstrap.min.css') }}">
 
     <!-- Plugin -->
     <link rel="stylesheet" href="{{ asset('homes/libs/owl.carousel/assets/owl.carousel.min.css') }}">
@@ -50,12 +50,12 @@
                         <span>Dashboard</span>
                     </a>
                 </li>     
-                <!-- <li>
+                <li>
                     <a href="{{ route('admin.user') }}">
-                        <i class='bx bx-calendar'></i>
+                        <i class='bx bx-user'></i>
                         <span>User</span>
                     </a>
-                </li>       -->
+                </li>      
                 <li>
                     <a href="{{ route('admin.pendaftaran') }}">
                         <i class='bx bxs-user'></i>
@@ -72,30 +72,6 @@
                         <li>
                             <a href="project.html">
                                Pengumuman
-                            </a>
-                        </li>
-                        <li>
-                            <a href="new-project.html">
-                                Tentang Sekolah
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="sidebar-submenu">
-                    <a href="project.html" class="sidebar-menu-dropdown menu-item">
-                        <i class='bx bxs-component' ></i>
-                        <span>Guru</span>
-                        <div class="dropdown-icon"><i class='bx bx-chevron-down'></i></div>
-                    </a>
-                    <ul class="sidebar-menu sidebar-menu-dropdown-content">
-                        <li>
-                            <a href="{{ route('admin.guru') }}">
-                               Master Data
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Tambah Guru
                             </a>
                         </li>
                     </ul>

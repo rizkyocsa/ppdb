@@ -17,21 +17,14 @@ class HomeController extends Controller
         $this->middleware('auth');
     }
 
-    public function home()
-    {
-        // $user = Auth::user();
-        // $registrasi = Registrasi::all();
-        $guru = Post::all()->where('kategori', 'guru');
-        $pendaftaran = pendaftaran::all();
-        return view('welcome', compact('pendaftaran', 'guru'));
-    }
-
     public function index()
     {
         $user = Auth::user();
         // $registrasi = Registrasi::all();
         // $guru = Post::all()->where('kategori', 'guru');
+        $daftar = Pendaftaran::all()->count();
+        $users = User::all()->count();
         $pendaftaran = pendaftaran::all();
-        return view('home', compact('user', 'pendaftaran'));
+        return view('home', compact('user', 'pendaftaran', 'users', 'daftar'));
     }
 }

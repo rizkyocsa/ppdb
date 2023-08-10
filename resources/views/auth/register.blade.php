@@ -18,10 +18,13 @@
 @endsection
 
 @section('content')
-<div class="main-content">
+<div class="main-content" style="background-color: rgb(255, 255, 255)">
     <section class="login">
         <div class="row">
             <div class="col-12">
+                <div class="row" style="height: 75px; width: 100px; margin:auto;">
+                    <img src="{{ asset('image/tut.png') }}" alt="member"/>
+                </div>
                     <div class="box-body">
                         <div class="auth-content my-auto">
 

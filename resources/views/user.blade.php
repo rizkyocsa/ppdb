@@ -6,55 +6,7 @@
 <div class="main-content user">
     <div class="row">
         <div class="col-xl-12">
-        <div class="box card-box mb-20">
-                <!-- <div class="icon-box bg-color-1">
-                    <div class="icon bg-icon-1">
-                        <i class='bx bxs-briefcase'></i>
-                    </div>
-                    <div class="content">
-                        <h5 class="title-box fs-15 mt-2">Total Pendaftar</h5>
-                        <div class="themesflat-counter fs-14 font-wb color-1">
-                            <span class="number" data-from="0" data-to="1225" data-speed="2500" data-inviewport="yes"></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="icon-box bg-color-2">
-                    <div class="icon bg-icon-2">
-                        <i class='bx bx-task'></i>
-                    </div>
-                    <div class="content click-c">
-                        <h5 class="title-box fs-15 mt-2">Total User</h5>
-                        <div class="themesflat-counter fs-14 font-wb color-2">
-                            <span class="number" data-from="0" data-to="309" data-speed="2500" data-inviewport="yes"></span>
-                        </div>
-                    </div>
-
-                </div> -->
-                <!-- <div class="icon-box bg-color-3">
-                    <div class="icon bg-icon-3">
-                        <i class='bx bx-block'></i>
-                    </div>
-                    <div class="content click-c">
-                        <h5 class="title-box fs-15 mt-2">Mahasiswa Cutik</h5>
-                        <div class="themesflat-counter fs-14 font-wb color-3">
-                            <span class="number" data-from="0" data-to="309" data-speed="2500" data-inviewport="yes">75 +</span>
-                        </div>
-                    </div>
-
-                </div>
-                <div class="icon-box bg-color-5">
-                    <div class="icon bg-icon-5">
-                        <i class='bx bx-task color-white'></i>
-                    </div>
-                    <div class="content click-c">
-                        <h5 class="title-box fs-15 mt-2">Alumni Mahasiswa</h5>
-                        <div class="themesflat-counter fs-14 font-wb color-4">
-                            <span class="number" data-from="0" data-to="309" data-speed="2500" data-inviewport="yes">120 +</span>
-                        </div>
-                    </div>
-
-                </div> -->
-            </div>
+            
             <div class="box">
                 <!-- <div class="box-body pb-30">
                     <div class="row">
@@ -110,61 +62,27 @@
                                             <tr class="top">
                                                 <th class="border-bottom-0 text-center sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 26.6562px;">No</th>
                                                 <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 222.312px;">Nama</th>
-                                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 84.8281px;">Tempat & Tanggal Lahir</th>
-                                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 87.9844px;">Jenis Kelamin</th>
-                                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 87.9844px;">Agama</th>
-                                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 87.9844px;">No HP</th>
-                                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 71.875px;">Alamat</th>
-                                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 71.875px;">Nama Orang Tua</th>
-                                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 71.875px;">Pekerjaan Orang Tua</th>
-                                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 71.875px;">Status</th>
+                                                <th class="border-bottom-0 sorting fs-14 font-w500" tabindex="0" aria-controls="task-profile" rowspan="1" colspan="1" style="width: 84.8281px;">Email</th>
                                                 <th class="border-bottom-0 sorting_disabled fs-14 font-w500" rowspan="1" colspan="1" style="width: 145.391px;">Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             @php $no=1; @endphp
-                                            @foreach($pendaftaran as $data)
+                                            @foreach($users as $data)
                                                 <tr class="">
-                                                    <td class="text-center">{{ $loop->iteration + $pendaftaran->firstItem() - 1 }}</td>
-                                                    <td class="text-left">{{$data->nama_lengkap}}</td>
-                                                    <td class="text-left">{{$data->tempat}} , {{$data->tanggal}}</td>
-                                                    <td class="text-left">{{$data->jk}}</td>
-                                                    <td class="text-left">{{$data->agama}}</td>
-                                                    <td class="text-left">{{$data->no_hp}}</td>
-                                                    <td class="text-left">{{$data->alamat}}</td>
-                                                    <td class="text-center">
-                                                        @if($data->nama_ayah !== null)
-                                                            Pak {{$data->nama_ayah}}
-                                                        @elseif($data->nama_ibu !== null)
-                                                            Ibu {{$data->nama_ibu}}
-                                                        @else
-                                                            {{$data->nama_wali}}
-                                                        @endif
-                                                    </td>
-                                                    <td class="text-center">
-                                                        @if($data->pekerjaan_ayah !== null)
-                                                            {{$data->pekerjaan_ayah}}
-                                                        @elseif($data->pekerjaan_ibu !== null)
-                                                            {{$data->pekerjaan_ibu}}
-                                                        @else
-                                                            {{$data->pekerjaan_wali}}
-                                                        @endif
-                                                    </td>
-                                                    @if($data->status == "lolos")
-                                                        <td><span class="badge badge-success">{{$data->status}}</span></td>
-                                                    @elseif($data->status == "proses")
-                                                        <td><span class="badge badge-warning">{{$data->status}}</span></td>
-                                                    @else
-                                                     <td><span class="badge badge-danger">Tidak lolos</span></td>
-                                                    @endif
+                                                    <td class="text-center">{{ $loop->iteration + $users->firstItem() - 1 }}</td>
+                                                    <td class="text-left">{{$data->name}} {{$data->id}}</td>
+                                                    <td class="text-left">{{$data->email}}</td>
                                                     <td>
-                                                    
                                                         <div class="dropdown">
                                                             <a href="javascript:void(0);" class="btn-link" data-bs-toggle="dropdown" aria-expanded="false">
                                                                 <i class='bx bx-dots-horizontal-rounded'></i>
                                                             </a>
                                                             <div class="dropdown-menu dropdown-menu-right">
-                                                                <button type="button" id="btn-lolos" data-toggle="modal" class="dropdown-item" data-target="#edit-lolos" data-id="{{$data->id}}"><span class="bx bx-edit mr-5"></span>Lolos</button>
+                                                                <!-- <button type="button" id="btn-lolos" data-toggle="modal" class="dropdown-item" data-target="#edit-lolos" data-id="{{$data->id}}"><span class="bx bx-edit mr-5"></span>Lolos</button> -->
+                                                                <button type="button" id="btn-edit" data-toggle="modal" class="dropdown-item" data-target="#modalEdit" data-id="{{$data->id}}"><span class="bx bx-edit mr-5"></span>Edit</button>
+                                                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_client"><i class="bx bx-trash"></i> Delete</a>
+                                                                <!-- <a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_client"><i class="bx bx-edit mr-5"></i>Edit</a> -->
                                                                 <!-- <a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_client"><i class="bx bx-edit mr-5"></i>Tidak Lolos</a>
                                                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#edit_client"><i class="bx bx-edit mr-5"></i>Edit</a>
                                                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#delete_client"><i class="bx bx-trash"></i> Delete</a> -->
@@ -178,7 +96,7 @@
                                 </div>
                             </div>
                             <div class="row">
-                                {{ $pendaftaran->links('vendor.pagination.bootstrap-4')}}
+                                {{ $users->links('vendor.pagination.bootstrap-4')}}
                                 <!-- <div class="col-sm-12 col-md-5">
                                     <div class="dataTables_info" id="task-profile_info" role="status" aria-live="polite">Showing 1 to 8 of 8 entries</div>
                                 </div>
@@ -203,30 +121,29 @@
     </div>
 </div>
 
-<div class="modal custom-modal fade" id="edit-lolos" role="dialog">
+<div class="modal custom-modal fade" id="modalEdit" role="dialog">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body">
                 <div class="form-header">
-                    <h5 class="modal-title">Status</h5>
+                    <h5 class="modal-title">Edit Data</h5>
                 </div>
             </div>
             <div class="modal-body">
-                <form action="{{ route('pendaftaran.status') }}" method="post">
+                <form action="{{ route('admin.user.update') }}" method="post">
                 @csrf
                 @method('PATCH')
                     <div class="row">                       
                         <div class="form-group">
-                            <label>Apakah pendaftar ini lolos</label>
+                            <label>Nama</label>
                             <div class="form-group">
-                                <input class="form-control" id="name-pendaftaran"  name="name" type="text">
+                                <input class="form-control" id="name-user"  name="name" type="text">
                             </div>
-                            <!-- <div class="form-group">
-                                <input class="form-control" id="ayah-pendaftaran"  name="name" type="text">
-                            </div> -->
-                            <input class="form-control" id="id-pendaftaran"  name="id" type="text" hidden>
-                            <input class="form-control" id="byemail-pendaftaran"  name="byemail" type="text" hidden>
-                            <input class="form-control" id="status-pendaftaran" value="lolos" name="status" type="text" hidden>
+                            <label>Email</label>
+                            <div class="form-group">
+                                <input class="form-control" id="email-user"  name="email" type="text">
+                            </div>
+                            <input class="form-control" id="id-user" value="{{ $data->id }}" name="id" type="text" hidden>
                         </div>
                     </div>
                     <div class="submit-section">
@@ -245,20 +162,27 @@
 
 <script>
     $(function(){
-        $(document).on('click','#btn-lolos', function(){
+        $(document).on('click','#btn-edit', function(){
             let id = $(this).data('id');
-
+            console.log(id);
             $.ajax({
                 type: "get",
-                url : "{{url('admin/pendaftaran/ajax/data')}}/"+id,
+                url : "{{url('admin/user/ajax/data')}}/"+id,
                 dataType: 'json',
                 success : function(res){
-                    $('#id-pendaftaran').val(res.id);
-                    $('#name-pendaftaran').val(res.nama_lengkap);
-                    // $('#ayah-pendaftaran').val(res.nama_ayah);
-                    $('#byemail-pendaftaran').val(res.by_email);  
+                    $('#id-user').val(res.id);
+                    $('#name-user').val(res.name);
+                    $('#email-user').val(res.email);
                     console.log(res);
+                    console.log(res.id);
+                    console.log(res.name);
+                    console.log(res.email);
+                    // $('#byemail-pendaftaran').val(res.by_email);  
                 },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert(xhr.status);
+                    alert(thrownError);
+                }
             });
         });
     });

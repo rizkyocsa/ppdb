@@ -26,9 +26,11 @@ class CreatePendaftaransTable extends Migration
             $table->string('nama_ibu')->nullable();
             $table->string('pekerjaan_ayah')->nullable();
             $table->string('pekerjaan_ibu')->nullable();
+            $table->string('foto_kk')->nullable();
             $table->string('nama_wali')->nullable();
             $table->string('pekerjaan_wali')->nullable();
             $table->string('alamat_wali')->nullable();
+            $table->string('foto_kk_wali')->nullable();
             $table->string('status');
             $table->string('by_email');
             $table->timestamps();

@@ -16,7 +16,7 @@ class CreateRolesSeeder extends Seeder
             ],
             [
                 'id' => 2,
-                'name' => 'Mahasiswa'
+                'name' => 'Siswa'
             ],
             [
                 'id' => 3,

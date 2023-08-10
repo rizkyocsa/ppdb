@@ -9,14 +9,14 @@ class Pendaftaran extends Model
 {
     use HasFactory;
 
-    // protected $fillable = [
-    //     'nama_lengkap',
-    //     'tempat', 
-    //     'tanggal',
-    //     'jk',
-    //     'agama',
-    //     'no_hp',
-    //     'alamat',
-    //     'by_email',
-    // ];
+    protected $fillable = [
+        'nama_lengkap',
+        'tempat', 
+        'tanggal',
+        'jk',
+        'agama',
+        'no_hp',
+        'alamat',
+        'by_email',
+    ];
 }

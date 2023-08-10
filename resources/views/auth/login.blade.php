@@ -19,11 +19,14 @@
 
 @section('content')
 
-<div class="main-content" style="">
+<div class="main-content" style="background-color: rgb(255, 255, 255)">
 <!-- {{ asset('homes/css/bootstrap.min.css') }} -->
     <section class="login">
         <div class="row">
             <div class="col-12">
+                <div class="row" style="height: 75px; width: 100px; margin:auto;">
+                    <img src="{{ asset('image/tut.png') }}" alt="member"/>
+                </div>
                     <div class="box-body">
                         <div class="auth-content my-auto">
 

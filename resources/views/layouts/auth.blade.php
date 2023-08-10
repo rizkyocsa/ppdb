@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>
-        Protend - Project Management Admin Dashboard HTML Template
+        SD Negeri Selajambe 4
     </title>
     <link rel="shortcut icon" href="{{ asset('homes/images/favicon.png') }}" type="image/png">
     <!-- GOOGLE FONT -->
@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="{{ asset('homes/css/responsive.css') }}">
 </head>
 
-<body class="main-auth" style="background-image: url( {{asset('image/bg-login.png')}} ); background-attachment: fixed;
+<body class="main-auth" style="background-image: url( {{asset('image/bg.png')}} ); background-attachment: fixed;
   background-size: 100% 100%;  ">
 
     <!-- SIDEBAR -->

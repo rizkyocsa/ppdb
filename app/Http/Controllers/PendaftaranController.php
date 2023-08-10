@@ -54,6 +54,14 @@ class PendaftaranController extends Controller
         $pendaftaran -> nama_ibu = $req->get('nama_ibu');
         $pendaftaran -> pekerjaan_ibu = $req->get('pekerjaan_ibu');
 
+        if($req->hasFile('foto_kk')){
+            $extension = $req->file('foto_kk')->extension();
+            $filename = 'fotoKK_'.time().'.'.$extension;
+            $req->file('foto_kk')->storeAs('public/foto_KK_pendaftaran', $filename);
+
+            $pendaftaran->foto_kk =  $filename;
+        }
+
         $pendaftaran -> status =$req->get('status');
         $pendaftaran -> by_email =$req->get('byemail');
         
@@ -70,10 +78,51 @@ class PendaftaranController extends Controller
 
     public function getData($id){
         $pendaftaran = pendaftaran::find($id);
-
+        
         return response()->json($pendaftaran);
     }
 
+    public function update_pendaftaran(Request $req){
+        $pendaftaran = pendaftaran::find($req->get('id'));
+        // dd($pendaftaran);
+        $validate =$req->validate([
+            'nama_lengkap' =>'required',
+            'tempat' =>'required',
+            'tanggal' =>'required',
+            'jk' =>'required',
+            'agama' =>'required',
+            'no_hp' =>'required',
+            'alamat' =>'required',
+            'status' =>'required',
+            'byemail' =>'required',
+        ]);
+
+        $pendaftaran -> nama_lengkap = $req->get('nama_lengkap');
+        $pendaftaran -> tempat = $req->get('tempat');
+        $pendaftaran -> tanggal = $req->get('tanggal');
+        $pendaftaran -> jk = $req->get('jk');
+        $pendaftaran -> agama = $req->get('agama');
+        $pendaftaran -> no_hp = $req->get('no_hp');
+        $pendaftaran -> alamat = $req->get('alamat');
+        $pendaftaran -> nama_ayah = $req->get('nama_ayah');
+        $pendaftaran -> pekerjaan_ayah = $req->get('pekerjaan_ayah');
+        $pendaftaran -> nama_ibu = $req->get('nama_ibu');
+        $pendaftaran -> pekerjaan_ibu = $req->get('pekerjaan_ibu');
+
+        if($req->hasFile('foto_kk')){
+            $extension = $req->file('foto_kk')->extension();
+            $filename = 'fotoKK_'.time().'.'.$extension;
+            $req->file('foto_kk')->storeAs('public/foto_KK_pendaftaran', $filename);
+
+            
+            $pendaftaran->foto_kk =  $filename;
+        }
+        
+        $pendaftaran->save();
+
+        return redirect()-> route('home');
+    }
+    
     public function status_pendaftaran(Request $req){
         $pendaftaran = pendaftaran::find($req->get('id'));
 
@@ -84,18 +133,6 @@ class PendaftaranController extends Controller
         $pendaftaran->status = $req->get('status');
 
         $pendaftaran->save();
-
-        // $validate =$req->validate([
-        //     'NPM' =>'required',
-        //     'name' =>'required',
-        //     'byemail' =>'required',
-        // ]);
-
-        // $mahasiswa = new Mahasiswa;
-        // $mahasiswa->NPM  = $req->get('name');
-        // $mahasiswa->name  = $req->get('name');
-        // $mahasiswa->byemail  = $req->get('byemail');
-        // $mahasiswa->save();
 
         return redirect()->route('admin.pendaftaran');
     }
